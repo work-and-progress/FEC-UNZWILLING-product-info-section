@@ -1,1 +1,0 @@
-# FEC-Zwilling-product-info
