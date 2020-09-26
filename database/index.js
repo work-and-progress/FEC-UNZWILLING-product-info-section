@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const faker = require('faker');
-mongoose.connect('mongodb://localhost/UNZWILLING', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
+mongoose.connect('mongodb://localhost/UNZWILLING', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false });
+
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -11,125 +12,177 @@ db.once('open', function() {
 // Schema
 let productSchema = new mongoose.Schema({
   // TODO: your schema here!
-  product_id: {type: Number,unique: true, required: true},
-  product_name: {type: String, required: true},
-  category_id: {type: Number,unique: true, required: true},
-  product_price: {type: Number, required: true}, // Need to find out $ format
-  review_id: {type: Number,unique: true, required: true} // Need to change ??
-  // Make the product description as a nested object
-  // product_description: {
-  //   product_description: String,
-  //   product_specification_item_no: {type: Number,unique: true}, // Need to change??
-  //   product_specification_color: String,
-  //   product_specification_country_of_origin: String,
-  //   product_specification_substance: String,
-  //   product_specification_electrical_power_supply_needed: Boolean,
-  //   product_specification_voltage: Number,
-  //   product_specification_capacity: Number,
-  //   product_specification_safety_shut_off: Boolean,
-  //   product_specification_motor: String,
-  //   product_specification_hidden_cord_storage: Boolean,
-  //   product_specification_programs: Number,
-  //   product_specification_blade: String,
-  //   product_specification_speeds: Number,
-  //   product_specification_lcd_display: Boolean,
-  //   product_specification_power_input: Number,
-  // },
-  // product_measurements_capacity: Number,
-  // product_images: String, // Need to be an array?
-  // product_main_image: String // Need to change
-  // // product_inventory: Number
-  // // product_features: String,
-  // // related_products: String, // Need to change,
-  // // question_id: Number,
+  id: {type: Number,unique: true, required: true},
+  name: {type: String, required: true},
+  price: {type: Number, required: true}, // Need to find out $ format
+  discount: Number,
+  review: {
+    number_of_reviews: Number,
+    five_star_reviews: Number,
+    four_star_reviews: Number,
+    three_star_reviews: Number,
+    two_star_reviews: Number,
+    one_star_reviews: Number,
+    average_rating: Number
+  }, // Need to change ??
+  description: String,
+  specification_item_no: {type: Number,unique: true},
+  characteristics: {
+    color: String,
+    country_of_origin: String,
+    substance: String,
+    electrical_power_supply_needed: Boolean,
+    voltage: Number,
+    capacity: Number,
+    safety_shut_off: Boolean,
+    motor: String,
+    hidden_cord_storage: Boolean,
+    programs: Number,
+    blade: String,
+    speeds: Number,
+    lcd_display: Boolean,
+    power_input: Number,
+  },
+  measurements: {
+    net_weight: Number,
+    capacity: Number,
+    length_of_product: Number,
+    width_of_product: Number,
+    height_of_product: Number
+  },
+  // images: Array,
+  main_image: String
 });
 
 // Model
 let Product = mongoose.model('Product', productSchema);
 
-var hundredData = [];
-for(var i = 0; i < 2; i ++) {
-  var randomData = new Product({
-    product_id: faker.random.number({
-      'min': 1000,
-      'max': 1099
+var bunchOfSeeds = [];
+for (var i = 0; i < 100; i ++) {
+  var seeding = new Product({
+    id: i,
+    name: faker.commerce.product(),
+    price: faker.commerce.price(), // Need to find out $ format
+    discount: faker.random.number({
+        'min': 10,
+        'max': 50
+      }),
+    review: {
+      number_of_reviews: faker.random.number({
+        'min': 1,
+        'max': 999
+      }),
+      five_star_reviews: faker.random.number({
+        'min': 0,
+        'max': 5
+      }),
+      four_star_reviews: faker.random.number({
+        'min': 0,
+        'max': 5
+      }),
+      three_star_reviews: faker.random.number({
+        'min': 0,
+        'max': 5
+      }),
+      two_star_reviews: faker.random.number({
+        'min': 0,
+        'max': 5
+      }),
+      one_star_reviews: faker.random.number({
+        'min': 0,
+        'max': 5
+      }),
+      average_rating: faker.random.number({
+        'min': 0,
+        'max': 5
+      })
+    }, // Need to change ??
+    description: faker.lorem.sentence(),
+    specification_item_no: faker.random.number({
+      'min': 1,
+      'max': 999
     }),
-    product_name: faker.commerce.product(),
-    category_id: faker.random.number({
-      'min': 2000,
-      'max': 2099
-    }),
-    product_price: faker.commerce.price(), // Need to find out $ format
-    review_id: faker.random.number({
-      'min': 3000,
-      'max': 3099
-    })
-    // product_description: {
-    //   product_description: faker.commerce.productDescription(),
-    //   product_specification_item_no: { faker.random.number({
-    //     'min': 4000,
-    //     'max': 4099
-    //   }), // Need to change??
-    //   product_specification_color: faker.commerce.color(),
-    //   product_specification_country_of_origin: faker.address.country(),
-    //   product_specification_substance: String,
-    //   product_specification_electrical_power_supply_needed: Boolean,
-    //   product_specification_voltage: Number,
-    //   product_specification_capacity: Number,
-    //   product_specification_safety_shut_off: Boolean,
-    //   product_specification_motor: String,
-    //   product_specification_hidden_cord_storage: Boolean,
-    //   product_specification_programs: Number,
-    //   product_specification_blade: String,
-    //   product_specification_speeds: Number,
-    //   product_specification_lcd_display: Boolean,
-    //   product_specification_power_input: Number,
-    // },
-    // product_measurements_capacity: Number,
-    // product_images: String, // Need to be an array?
-    // product_main_image: String
+    characteristics: {
+      color: faker.commerce.color(),
+      country_of_origin: faker.address.country(),
+      substance: faker.lorem.sentence(),
+      electrical_power_supply_needed: faker.random.boolean(),
+      voltage: faker.random.number({
+        'min': 110,
+        'max': 220
+      }),
+      capacity: faker.random.number({
+        'min': 1000,
+        'max': 2000
+      }),
+      safety_shut_off: faker.random.boolean(),
+      motor: faker.lorem.sentence(),
+      hidden_cord_storage: faker.random.boolean(),
+      programs: faker.random.number({
+        'min': 5,
+        'max': 20
+      }),
+      blade: faker.lorem.sentence(),
+      speeds: faker.random.number({
+        'min': 5,
+        'max': 20
+      }),
+      lcd_display: faker.random.boolean(),
+      power_input: faker.random.number({
+        'min': 1000,
+        'max': 2000
+      }),
+    },
+    measurements: {
+      net_weight: faker.random.number({
+        'min': 10,
+        'max': 20
+      }),
+      capacity: faker.random.number({
+        'min': 1,
+        'max': 5
+      }),
+      length_of_product: faker.random.number({
+        'min': 5,
+        'max': 10
+      }),
+      width_of_product: faker.random.number({
+        'min': 5,
+        'max': 10
+      }),
+      height_of_product: faker.random.number({
+        'min': 10,
+        'max': 20
+      })
+    },
+    // images: Array,
+    main_image: faker.image.image()
   });
-  hundredData.push(randomData);
+  bunchOfSeeds.push(seeding);
 }
 
-var deleteMany = (callback) => {
-  Product.deleteMany({}, () => {
-    callback
-  });
-}
+// drop collections before new seeding           =
 
-var insertManyFnc = () => {
-  Product.insertMany(hundredData)
+mongoose.connection.collections['products'].drop( function(err) {
+  console.log('collection dropped');
+});
+
+Product.insertMany(bunchOfSeeds)
 .then(() => {
   console.log("Data inserted")  // Success
 })
 .catch((error) => {
   console.log(error)      // Failure
 });
-}
 
-var seeding = () => {
-  deleteMany(insertManyFnc())
-}
+// var deleteMany = (callback) => {
+//   Product.deleteMany({}, () => {
+//     callback();
+//   });
+// }
 
-seeding();
-// Code from Jon
-// let save = (products) => {
-//   var savePromises = [];
-//   products.forEach(product => {
-//     let filter = {id: product.id};
-//     savePromises.push(
-//       Product.findOneAndUpdate(filter, product, {
-//         new: true,
-//         upsert: true
-//       })
-//       .catch(err=>{
-//         console.error(err);
-//       })
-//     );
-//   })
-//   return Promise.all(savePromises);
-//     // .then(response => {
-//     //   return response;
-//     // });
-// };
+// var seedingData = () => {
+//   deleteMany(insertManyFnc);
+// }
+
+// seedingData();
