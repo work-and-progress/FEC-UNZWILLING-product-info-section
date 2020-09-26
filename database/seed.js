@@ -5,7 +5,7 @@ var faker = require ('faker');
 // const randomImages = new Array(10).fill(null).map(e => e = faker.fake("{{image.image}}"))
 
 var bunchOfSeeds = [];
-for (var i = 0; i < 100; i ++) {
+for (var i = 1; i < 3; i ++) {
   var seeding = {
     id: i,
     name: faker.commerce.product(),

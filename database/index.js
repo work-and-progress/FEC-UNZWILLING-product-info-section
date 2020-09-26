@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const faker = require('faker');
-
 const seed = require('./seed.js');
 
 mongoose.connect('mongodb://localhost/UNZWILLING', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false });
 
 
+/*----------------------------------------------------------------*/
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -76,7 +76,19 @@ var seedingData = () => {
     console.log(error)      // Failure
   });
 }
+/*----------------------------------------------------------------*/
+
+var getOneProductData = (id, callback) => {
+  Product.findOne({id}, (err, productInfo) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, productInfo);
+    }
+  })
+}
 
 module.exports = {
-  seedingData
+  seedingData,
+  getOneProductData
 }
