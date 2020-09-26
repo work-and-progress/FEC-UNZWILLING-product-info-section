@@ -60,21 +60,23 @@ let productSchema = new mongoose.Schema({
 // Model
 let Product = mongoose.model('Product', productSchema);
 
-// generating random images
-// this is an example. Do not use the variable so it generates random ten images for each random product.
-// const randomImages = new Array(10).fill(null).map(e => e = faker.fake("{{image.image}}"))
+var seedingData = () => {
+  // drop collections before new seeding
+  mongoose.connection.collections['products'].drop(function(err) {
+    console.log('collection dropped');
+  });
 
-// drop collections before new seeding
-mongoose.connection.collections['products'].drop(function(err) {
-  console.log('collection dropped');
-});
+  var bunchOfSeeds = seed.bunchOfSeeds;
 
-var bunchOfSeeds = seed.bunchOfSeeds;
+  Product.insertMany(bunchOfSeeds)
+  .then(() => {
+    console.log("Data inserted")  // Success
+  })
+  .catch((error) => {
+    console.log(error)      // Failure
+  });
+}
 
-Product.insertMany(bunchOfSeeds)
-.then(() => {
-  console.log("Data inserted")  // Success
-})
-.catch((error) => {
-  console.log(error)      // Failure
-});
+module.exports = {
+  seedingData
+}
