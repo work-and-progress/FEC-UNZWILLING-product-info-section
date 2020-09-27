@@ -14,10 +14,9 @@ db.once('open', function() {
 
 // Schema
 let productSchema = new mongoose.Schema({
-  // TODO: your schema here!
   id: {type: Number,unique: true, required: true},
   name: {type: String, required: true},
-  price: {type: Number, required: true}, // Need to find out $ format
+  price: {type: Number, required: true},
   discount: Number,
   review: {
     number_of_reviews: Number,
@@ -27,7 +26,7 @@ let productSchema = new mongoose.Schema({
     two_star_reviews: Number,
     one_star_reviews: Number,
     average_rating: Number
-  }, // Need to change ??
+  },
   description: String,
   specification_item_no: {type: Number,unique: true},
   characteristics: {
