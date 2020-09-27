@@ -1,22 +1,22 @@
 const mongoose = require('mongoose');
-const faker = require('faker');
 const seed = require('./seed.js');
 
-mongoose.connect('mongodb://localhost/UNZWILLING', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false });
-
+mongoose.connect('mongodb://localhost/UNZWILLING', {
+  useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false,
+});
 
 /*----------------------------------------------------------------*/
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log("MONGO CONNECTED!")
+db.once('open', () => {
+  console.log('MONGO CONNECTED!');
 });
 
 // Schema
-let productSchema = new mongoose.Schema({
-  id: {type: Number,unique: true, required: true},
-  name: {type: String, required: true},
-  price: {type: Number, required: true},
+const productSchema = new mongoose.Schema({
+  id: { type: Number, unique: true, required: true },
+  name: { type: String, required: true },
+  price: { type: Number, required: true },
   discount: Number,
   review: {
     number_of_reviews: Number,
@@ -25,10 +25,10 @@ let productSchema = new mongoose.Schema({
     three_star_reviews: Number,
     two_star_reviews: Number,
     one_star_reviews: Number,
-    average_rating: Number
+    average_rating: Number,
   },
   description: String,
-  specification_item_no: {type: Number,unique: true},
+  specification_item_no: { type: Number, unique: true },
   characteristics: {
     color: String,
     country_of_origin: String,
@@ -50,44 +50,44 @@ let productSchema = new mongoose.Schema({
     capacity: Number,
     length_of_product: Number,
     width_of_product: Number,
-    height_of_product: Number
+    height_of_product: Number,
   },
   images: Array,
-  main_image: String
+  main_image: String,
 });
 
 // Model
-let Product = mongoose.model('Product', productSchema);
+const Product = mongoose.model('Product', productSchema);
 
-var seedingData = () => {
+const seedingData = () => {
   // drop collections before new seeding
-  mongoose.connection.collections['products'].drop(function(err) {
-    console.log('collection dropped');
+  mongoose.connection.collections.products.drop((err) => {
+    console.log('collection dropped', err);
   });
 
-  var bunchOfSeeds = seed.bunchOfSeeds;
+  const seeds = seed.bunchOfSeeds;
 
-  Product.insertMany(bunchOfSeeds)
-  .then(() => {
-    console.log("Data inserted")  // Success
-  })
-  .catch((error) => {
-    console.log(error)      // Failure
-  });
-}
+  Product.insertMany(seeds)
+    .then(() => {
+      console.log('Data inserted');// Success
+    })
+    .catch((error) => {
+      console.log(error);// Failure
+    });
+};
 /*----------------------------------------------------------------*/
 
-var getOneProductData = (id, callback) => {
-  Product.findOne({id}, (err, productInfo) => {
+const getOneProductData = (id, callback) => {
+  Product.findOne({ id }, (err, productInfo) => {
     if (err) {
       callback(err);
     } else {
       callback(null, productInfo);
     }
-  })
-}
+  });
+};
 
 module.exports = {
   seedingData,
-  getOneProductData
-}
+  getOneProductData,
+};
