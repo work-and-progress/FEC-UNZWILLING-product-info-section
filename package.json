@@ -6,8 +6,10 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server": "nodemon server/index.js",
-    "start" : "webpack-dev-server --open",
-    "seeding": "node -e 'require(\"./database/index.js\").seedingData()'"
+    "start": "webpack-dev-server --open",
+    "seeding": "node -e 'require(\"./database/index.js\").seedingData()'",
+    "test": "jest --config ./jest.config.json",
+    "test:watch": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",
@@ -45,6 +47,8 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.21.2",
     "eslint-plugin-react-hooks": "^4.1.2",
+    "jest": "^26.4.2",
+    "react-test-renderer": "^16.13.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   }

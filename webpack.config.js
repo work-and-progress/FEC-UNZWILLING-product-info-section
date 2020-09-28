@@ -23,4 +23,5 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, '/client/dist'),
   },
+  resolve: { extensions: ['.js', '.jsx'] },
 };
