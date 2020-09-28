@@ -2,5 +2,6 @@
   "cSpell.words": [
     "unzwilling",
     "upsert"
-  ]
+  ],
+  "git.ignoreLimitWarning": true
 }
