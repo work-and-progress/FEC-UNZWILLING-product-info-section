@@ -13,14 +13,14 @@ class App extends React.Component {
   }
 
   addCounter() {
-    this.setState((preveState) => ({
-      counter: preveState.counter + 1,
+    this.setState((previousState) => ({
+      counter: previousState.counter + 1,
     }));
   }
 
   subtractCounter() {
-    this.setState((preveState) => ({
-      counter: preveState.counter - 1,
+    this.setState((previousState) => ({
+      counter: previousState.counter - 1,
     }));
   }
 
