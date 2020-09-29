@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot renders 1`] = `
+<div>
+  <h1>
+    HEY WELCOME TO MY APP.JSX
+  </h1>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Increment
+  </button>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Decrement
+  </button>
+  <div>
+    <h2>
+      0
+    </h2>
+  </div>
+</div>
+`;
+
+exports[`Counter snapshot renders 1`] = `
+<div>
+  <h2>
+    1
+  </h2>
+</div>
+`;
