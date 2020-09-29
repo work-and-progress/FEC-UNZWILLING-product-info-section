@@ -1,15 +1,15 @@
 /* eslint-disable no-console */
 const express = require('express');
-const cors = require('cors');
+// const cors = require('cors');
 const path = require('path');
 
 const app = express();
 
-const PORT = 8010;
+const PORT = 3000;
 const bodyParser = require('body-parser');
 const queries = require('../database/index.js');
 
-app.use(cors());
+// app.use(cors());
 // app.use('/', router)
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
