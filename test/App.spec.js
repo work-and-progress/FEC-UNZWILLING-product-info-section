@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import App, { Counter } from '../src/App';
+import App, { Counter } from '../client/src/App';
 
 describe('App', () => {
   test('snapshot renders', () => {
