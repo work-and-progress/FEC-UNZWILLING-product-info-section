@@ -22,6 +22,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, '/client/dist'),
+    // proxy: 'http://localhost:8020',
   },
   resolve: { extensions: ['.js', '.jsx'] },
 };

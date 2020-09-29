@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// import Counter from './Counter';
 
 class App extends React.Component {
   constructor(props) {
@@ -23,12 +25,13 @@ class App extends React.Component {
   }
 
   render() {
+    const { counter } = this.state;
     return (
       <div>
         <h1>HEY WELCOME TO MY APP.JSX</h1>
         <button type="button" onClick={this.addCounter}>Increment</button>
         <button type="button" onClick={this.subtractCounter}>Decrement</button>
-        <Counter counter={this.state.counter} />
+        <Counter counter={counter} />
       </div>
     );
   }
@@ -39,5 +42,12 @@ export const Counter = ({ counter }) => (
     <h2>{ counter }</h2>
   </div>
 );
+
+Counter.propTypes = {
+  counter: PropTypes.number,
+};
+Counter.defaultProps = {
+  counter: 0,
+};
 
 export default App;
