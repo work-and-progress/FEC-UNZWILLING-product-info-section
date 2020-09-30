@@ -9,16 +9,27 @@ export default class ProductTitleAndLogo extends React.Component {
   }
 
   render() {
+    const { productInfoDetails } = this.props;
     return (
       <div>
-        <h1>Hey</h1>
+        <h1>ProductTitleAndLogo</h1>
+        <h2>
+          Product Category :
+          {productInfoDetails.category}
+        </h2>
+        <h2>
+          Product Name :
+          {productInfoDetails.name}
+        </h2>
       </div>
     );
   }
 }
 
 ProductTitleAndLogo.propTypes = {
+  productInfoDetails: PropTypes.instanceOf(Object),
 };
 
 ProductTitleAndLogo.defaultProps = {
+  productInfoDetails: null,
 };

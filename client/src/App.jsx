@@ -25,8 +25,8 @@ export default class App extends React.Component {
           productInfoDetails: response.data,
         }));
       })
-      .catch((error) => {
-        console.err(error);
+      .catch(() => {
+        // console.err(error);
       });
   }
 

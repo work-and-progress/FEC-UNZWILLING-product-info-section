@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import ProductTitleAndLogo from '../ProductTitleAndLogo/ProductTitleAndLogo';
+
 export default class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -10,10 +12,11 @@ export default class ProductDetails extends React.Component {
 
   render() {
     const { productInfoDetails } = this.props;
-    console.log('PRODUCT DETAILS : ', productInfoDetails);
+    // console.log('PRODUCT DETAILS : ', productInfoDetails);
     return (
       <div>
-        <h1>Hey</h1>
+        <h1>ProductDetails</h1>
+        <ProductTitleAndLogo productInfoDetails={productInfoDetails} />
       </div>
     );
   }
