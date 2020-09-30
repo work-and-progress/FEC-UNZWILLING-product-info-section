@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 // import TopNavBar from './components/top_bar_components/TopNavBar/TopNavBar';
-import ProductDetails from './components/product_details_components/productDetails/ProductDetails';
+import ProductDetails from './components/ProductDetailsComponents/ProductDetails/ProductDetails';
 import ProductImages from './components/image_components/ProductImages';
 
 export default class App extends React.Component {
