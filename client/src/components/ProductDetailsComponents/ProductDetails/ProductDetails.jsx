@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ProductTitleAndLogo from '../ProductTitleAndLogo/ProductTitleAndLogo';
+import AddToBasket from '../AddToBasket/AddToBasket';
 
 const propTypes = {
   productInfoDetails: PropTypes.instanceOf(Object),
@@ -26,6 +27,7 @@ export default class ProductDetails extends React.Component {
         <div>
           <h1>ProductDetails</h1>
           <ProductTitleAndLogo productInfoDetails={productInfoDetails} />
+          <AddToBasket />
         </div>
       </div>
     );

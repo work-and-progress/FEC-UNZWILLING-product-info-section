@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class AddToBasket extends React.component {
+export default class AddToBasket extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
