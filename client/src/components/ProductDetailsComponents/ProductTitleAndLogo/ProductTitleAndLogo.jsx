@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './styles.css';
+import logo from './logo.png';
 
 const propTypes = {
   productInfoDetails: PropTypes.instanceOf(Object),
@@ -8,6 +10,7 @@ const propTypes = {
 const defaultProps = {
   productInfoDetails: null,
 };
+
 export default class ProductTitleAndLogo extends React.Component {
   constructor(props) {
     super(props);
@@ -28,6 +31,12 @@ export default class ProductTitleAndLogo extends React.Component {
           Product Name :
           {productInfoDetails.name}
         </h2>
+        <span>
+          <img src={logo} className={styles.logo} alt="logo" />
+        </span>
+        <h3>
+          NEW
+        </h3>
       </div>
     );
   }

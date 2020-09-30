@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import styles from './styles.css';
 
 // import TopNavBar from './components/top_bar_components/TopNavBar/TopNavBar';
 import ProductDetails from '../components/ProductDetailsComponents/ProductDetails/ProductDetails';
@@ -34,9 +35,14 @@ export default class App extends React.Component {
     const { productInfoDetails } = this.state;
     return (
       <div>
-        <h1>HEY WELCOME TO MY APP . JSX</h1>
-        <ProductDetails productInfoDetails={productInfoDetails} />
-        <ProductImages />
+        <div className={styles.container}>
+          <div>
+            <ProductImages />
+          </div>
+          <div>
+            <ProductDetails productInfoDetails={productInfoDetails} />
+          </div>
+        </div>
       </div>
     );
   }
