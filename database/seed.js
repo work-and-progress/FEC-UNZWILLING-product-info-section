@@ -6,9 +6,10 @@ const faker = require('faker');
 // const randomImages = new Array(10).fill(null).map(e => e = faker.fake("{{image.image}}"))
 
 const bunchOfSeeds = [];
-for (let i = 1; i < 3; i += 1) {
+for (let i = 1; i < 101; i += 1) {
   const seeding = {
     id: i,
+    category: faker.lorem.words(),
     name: faker.commerce.product(),
     price: faker.commerce.price(), // Need to find out $ format
     discount: faker.random.number({
@@ -16,56 +17,56 @@ for (let i = 1; i < 3; i += 1) {
       max: 50,
     }),
     review: {
-      number_of_reviews: faker.random.number({
+      numberOfReviews: faker.random.number({
         min: 1,
         max: 999,
       }),
-      five_star_reviews: faker.random.number({
+      fivStarReviews: faker.random.number({
         min: 0,
         max: 5,
       }),
-      four_star_reviews: faker.random.number({
+      fourStarReviews: faker.random.number({
         min: 0,
         max: 5,
       }),
-      three_star_reviews: faker.random.number({
+      threeStarReviews: faker.random.number({
         min: 0,
         max: 5,
       }),
-      two_star_reviews: faker.random.number({
+      twoStarReviews: faker.random.number({
         min: 0,
         max: 5,
       }),
-      one_star_reviews: faker.random.number({
+      oneStarReviews: faker.random.number({
         min: 0,
         max: 5,
       }),
-      average_rating: faker.random.number({
+      averageRating: faker.random.number({
         min: 0,
         max: 5,
       }),
     }, // Need to change ??
     description: faker.lorem.sentence(),
-    specification_item_no: faker.random.number({
+    specificationItemNo: faker.random.number({
       min: 1,
       max: 999,
     }),
     characteristics: {
       color: faker.commerce.color(),
-      country_of_origin: faker.address.country(),
+      countryOfOrigin: faker.address.country(),
       substance: faker.lorem.sentence(),
-      electrical_power_supply_needed: faker.random.boolean(),
+      electricalPowerSupplyNeeded: faker.random.boolean(),
       voltage: faker.random.number({
         min: 110,
         max: 220,
       }),
-      capacity: faker.random.number({
+      capacityMl: faker.random.number({
         min: 1000,
         max: 2000,
       }),
-      safety_shut_off: faker.random.boolean(),
+      safetyShutOff: faker.random.boolean(),
       motor: faker.lorem.sentence(),
-      hidden_cord_storage: faker.random.boolean(),
+      hiddenCordStorage: faker.random.boolean(),
       programs: faker.random.number({
         min: 5,
         max: 20,
@@ -75,36 +76,36 @@ for (let i = 1; i < 3; i += 1) {
         min: 5,
         max: 20,
       }),
-      lcd_display: faker.random.boolean(),
-      power_input: faker.random.number({
+      lcdDisplay: faker.random.boolean(),
+      powerInput: faker.random.number({
         min: 1000,
         max: 2000,
       }),
     },
-    measurements: {
-      net_weight: faker.random.number({
+    measurement: {
+      netWeight: faker.random.number({
         min: 10,
         max: 20,
       }),
-      capacity: faker.random.number({
+      capacityQt: faker.random.number({
         min: 1,
         max: 5,
       }),
-      length_of_product: faker.random.number({
+      lengthOfProduct: faker.random.number({
         min: 5,
         max: 10,
       }),
-      width_of_product: faker.random.number({
+      widthOfProduct: faker.random.number({
         min: 5,
         max: 10,
       }),
-      height_of_product: faker.random.number({
+      heightOfProduct: faker.random.number({
         min: 10,
         max: 20,
       }),
     },
     images: new Array(10).fill(null).map(() => faker.fake('{{image.image}}')),
-    main_image: faker.image.image(),
+    mainImage: faker.image.image(),
   };
   bunchOfSeeds.push(seeding);
 }

@@ -9,10 +9,20 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-react', '@babel/preset-env'],
-          },
         },
+      },
+      {
+        test: /\.css$/i,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+        ],
       },
     ],
   },
@@ -22,7 +32,13 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, '/client/dist'),
-    // proxy: 'http://localhost:8020',
+    port: 8080,
+    // Send API requests on localhost to API server get around CORS.
+    proxy: {
+      '/': {
+        target: 'http://localhost:3000/',
+      },
+    },
   },
   resolve: { extensions: ['.js', '.jsx'] },
 };

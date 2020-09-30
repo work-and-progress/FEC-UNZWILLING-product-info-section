@@ -1,53 +1,43 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-// import Counter from './Counter';
+import axios from 'axios';
 
-class App extends React.Component {
+// import TopNavBar from './components/top_bar_components/TopNavBar/TopNavBar';
+import ProductDetails from './components/product_details_components/productDetails/ProductDetails';
+import ProductImages from './components/image_components/ProductImages';
+
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter: 0,
+      productInfoDetails: {},
     };
-    this.addCounter = this.addCounter.bind(this);
-    this.subtractCounter = this.subtractCounter.bind(this);
+    this.getOneProductDetails = this.getOneProductDetails.bind(this);
   }
 
-  addCounter() {
-    this.setState((previousState) => ({
-      counter: previousState.counter + 1,
-    }));
+  componentDidMount() {
+    this.getOneProductDetails(1);
   }
 
-  subtractCounter() {
-    this.setState((previousState) => ({
-      counter: previousState.counter - 1,
-    }));
+  getOneProductDetails(id) {
+    axios.get(`http://localhost:8080/products/${id}`)
+      .then((response) => {
+        this.setState(() => ({
+          productInfoDetails: response.data,
+        }));
+      })
+      .catch((error) => {
+        console.err(error);
+      });
   }
 
   render() {
-    const { counter } = this.state;
+    const { productInfoDetails } = this.state;
     return (
       <div>
-        <h1>HEY WELCOME TO MY APP.JSX</h1>
-        <button type="button" onClick={this.addCounter}>Increment</button>
-        <button type="button" onClick={this.subtractCounter}>Decrement</button>
-        <Counter counter={counter} />
+        <h1>HEY WELCOME TO MY APP . JSX</h1>
+        <ProductDetails productInfoDetails={productInfoDetails} />
+        <ProductImages />
       </div>
     );
   }
 }
-
-export const Counter = ({ counter }) => (
-  <div>
-    <h2>{ counter }</h2>
-  </div>
-);
-
-Counter.propTypes = {
-  counter: PropTypes.number,
-};
-Counter.defaultProps = {
-  counter: 0,
-};
-
-export default App;
