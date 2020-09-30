@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class DropDownMenuItems extends React.Component {
+class DropdownMenuItems extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,12 +18,12 @@ class DropDownMenuItems extends React.Component {
   }
 }
 
-DropDownMenuItems.defaultProps = {
+DropdownMenuItems.defaultProps = {
   menuList: null,
 };
 
-DropDownMenuItems.propTypes = {
+DropdownMenuItems.propTypes = {
   menuList: PropTypes.string,
 };
 
-export default DropDownMenuItems;
+export default DropdownMenuItems;
