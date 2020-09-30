@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.css';
+import DropdownMenuSubitems from '../DropdownMenuSubitems/DropdownMenuSubitems';
 
 class DropdownMenuItems extends React.Component {
   constructor(props) {
@@ -13,7 +15,8 @@ class DropdownMenuItems extends React.Component {
     const { menuList } = this.props;
     return (
       <li className={styles.li}>
-        {menuList}
+        <a className={styles.a}>{menuList}</a>
+        <DropdownMenuSubitems />
       </li>
     );
   }

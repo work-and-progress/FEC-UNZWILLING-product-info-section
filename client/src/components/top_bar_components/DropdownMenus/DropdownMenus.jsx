@@ -17,7 +17,9 @@ class DropdownMenuList extends React.Component {
     return (
       <div>
         <h1>RENDER dropDownMenuList</h1>
-        <ul className={styles.ul}>{dropdownMenuItemsComponent}</ul>
+        <nav className={styles.nav}>
+          <ul className={styles.ul}>{dropdownMenuItemsComponent}</ul>
+        </nav>
       </div>
     );
   }
