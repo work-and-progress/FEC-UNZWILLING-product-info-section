@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './styles.css';
 
 class DropdownMenuItems extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class DropdownMenuItems extends React.Component {
   render() {
     const { menuList } = this.props;
     return (
-      <li>
+      <li className={styles.li}>
         {menuList}
       </li>
     );

@@ -1,5 +1,6 @@
 import React from 'react';
 import DropdownMenuItems from '../DropdownMenuItems/DropdownMenuItems';
+import styles from './styles.css';
 
 class DropdownMenuList extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class DropdownMenuList extends React.Component {
     return (
       <div>
         <h1>RENDER dropDownMenuList</h1>
-        <ul>{dropdownMenuItemsComponent}</ul>
+        <ul className={styles.ul}>{dropdownMenuItemsComponent}</ul>
       </div>
     );
   }
