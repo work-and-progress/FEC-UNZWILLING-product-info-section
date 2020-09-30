@@ -3,6 +3,14 @@ import PropTypes from 'prop-types';
 
 import ProductTitleAndLogo from '../ProductTitleAndLogo/ProductTitleAndLogo';
 
+const propTypes = {
+  productInfoDetails: PropTypes.instanceOf(Object),
+};
+
+const defaultProps = {
+  productInfoDetails: null,
+};
+
 export default class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -22,10 +30,5 @@ export default class ProductDetails extends React.Component {
   }
 }
 
-ProductDetails.propTypes = {
-  productInfoDetails: PropTypes.instanceOf(Object),
-};
-
-ProductDetails.defaultProps = {
-  productInfoDetails: null,
-};
+ProductDetails.propTypes = propTypes;
+ProductDetails.defaultProps = defaultProps;
