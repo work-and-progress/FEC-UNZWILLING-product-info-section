@@ -1,6 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 // import Counter from './Counter';
+import test from './test.css';
 import TopBar from './components/top_bar_components/TopBar';
 import ProductDetails from './components/product_details_components/ProductDetails';
 import ProductImages from './components/image_components/ProductImages';
@@ -16,7 +17,7 @@ class App extends React.Component {
     // const { counter } = this.state;
     return (
       <div>
-        <h1>HEY WELCOME TO MY APP.JSX</h1>
+        <h1 className={test.test}>HEY WELCOME TO MY APP.JSX</h1>
         <TopBar />
         <ProductDetails />
         <ProductImages />

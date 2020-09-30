@@ -1,4 +1,5 @@
 import React from 'react';
+import DropDownMenus from './DropDownMenus';
 
 class TopBar extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class TopBar extends React.Component {
     return (
       <div>
         <h1>RENDER TopBar</h1>
+        <DropDownMenus />
       </div>
     );
   }
