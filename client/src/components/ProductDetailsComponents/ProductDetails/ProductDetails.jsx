@@ -23,8 +23,10 @@ export default class ProductDetails extends React.Component {
     // console.log('PRODUCT DETAILS : ', productInfoDetails);
     return (
       <div>
-        <h1>ProductDetails</h1>
-        <ProductTitleAndLogo productInfoDetails={productInfoDetails} />
+        <div>
+          <h1>ProductDetails</h1>
+          <ProductTitleAndLogo productInfoDetails={productInfoDetails} />
+        </div>
       </div>
     );
   }
