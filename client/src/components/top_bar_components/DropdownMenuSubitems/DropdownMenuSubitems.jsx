@@ -11,7 +11,6 @@ class DropdownMenuSubitems extends React.Component {
   render() {
     return (
       <ul>
-        DDDD
       </ul>
     );
   }
