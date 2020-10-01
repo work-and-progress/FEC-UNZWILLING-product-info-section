@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import styles from './styles.css';
 import ProductTitleAndLogo from '../ProductTitleAndLogo/ProductTitleAndLogo';
 import AddToBasket from '../AddToBasket/AddToBasket';
 
 const propTypes = {
   productInfoDetails: PropTypes.instanceOf(Object),
+  updateBasket: PropTypes.func,
 };
 
 const defaultProps = {
   productInfoDetails: null,
+  updateBasket: null,
 };
 
 export default class ProductDetails extends React.Component {
@@ -20,14 +23,16 @@ export default class ProductDetails extends React.Component {
   }
 
   render() {
-    const { productInfoDetails } = this.props;
+    const { productInfoDetails, updateBasket } = this.props;
     // console.log('PRODUCT DETAILS : ', productInfoDetails);
     return (
-      <div>
+      <div className={styles.temp}>
         <div>
           <h1>ProductDetails</h1>
           <ProductTitleAndLogo productInfoDetails={productInfoDetails} />
-          <AddToBasket />
+          <AddToBasket
+            updateBasket={updateBasket}
+          />
         </div>
       </div>
     );

@@ -11,8 +11,10 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       productInfoDetails: {},
+      numberOfItemsInBasket: 0,
     };
     this.getOneProductDetails = this.getOneProductDetails.bind(this);
+    this.updateBasket = this.updateBasket.bind(this);
   }
 
   componentDidMount() {
@@ -31,6 +33,14 @@ export default class App extends React.Component {
       });
   }
 
+  updateBasket(numberOfItemsAdded) {
+    this.setState((previousState) => ({
+      numberOfItemsInBasket: previousState.numberOfItemsInBasket + numberOfItemsAdded,
+    }), () => {
+      console.log('UPDATED NUMBER OF ITEMS IN THE BASKET : ', this.state.numberOfItemsInBasket);
+    });
+  }
+
   render() {
     const { productInfoDetails } = this.state;
     return (
@@ -40,7 +50,10 @@ export default class App extends React.Component {
             <ProductImages />
           </div>
           <div>
-            <ProductDetails productInfoDetails={productInfoDetails} />
+            <ProductDetails
+              productInfoDetails={productInfoDetails}
+              updateBasket={this.updateBasket}
+            />
           </div>
         </div>
       </div>

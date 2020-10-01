@@ -21,7 +21,7 @@ export default class ProductTitleAndLogo extends React.Component {
   render() {
     const { productInfoDetails } = this.props;
     return (
-      <div>
+      <div className={styles.temp}>
         <h1>ProductTitleAndLogo</h1>
         <h2>
           Product Category :
