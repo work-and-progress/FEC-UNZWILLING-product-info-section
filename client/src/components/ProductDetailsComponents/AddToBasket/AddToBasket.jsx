@@ -25,8 +25,8 @@ export default class AddToBasket extends React.Component {
     e.preventDefault();
     const { numberOfItemsInBasketTemp } = this.state;
     const { updateBasket } = this.props;
-    const NumberOfAddeItemInBasket = Number(numberOfItemsInBasketTemp);
-    updateBasket(NumberOfAddeItemInBasket);
+    const NumberOfAddedItemInBasket = Number(numberOfItemsInBasketTemp);
+    updateBasket(NumberOfAddedItemInBasket);
     // console.log('UPDATED BASKET : ', updateBasket(321));
   }
 
