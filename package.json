@@ -10,7 +10,9 @@
     "seeding": "node -e 'require(\"./database/index.js\").seedingData()'",
     "test": "jest --config ./jest.config.json",
     "test:watch": "npm run test -- --watch",
+    "test:coverage":"npx jest --coverage",
     "clear_jest": "jest --clearCache"
+
   },
   "repository": {
     "type": "git",
