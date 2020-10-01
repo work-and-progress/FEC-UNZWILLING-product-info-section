@@ -1,11 +1,11 @@
-.logo {
-  height: 50px;
-  width: 50px;
-}
-
 .temp {
   box-sizing: boarder-box;
   width: 100%;
   border: solid black 5px;
   padding: 5px;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
 }

@@ -1,8 +1,26 @@
 {
   "cSpell.words": [
+    "a",
+    "aac",
+    "eot",
+    "gif",
+    "jpeg",
+    "jpg",
+    "jpg jpeg png gif eot otf webp svg ttf woff mp webm wav m a aac oga",
+    "m",
+    "mp",
+    "oga",
+    "otf",
+    "png",
     "preve",
+    "svg",
+    "ttf",
     "unzwilling",
-    "upsert"
+    "upsert",
+    "wav",
+    "webm",
+    "webp",
+    "woff"
   ],
   "git.ignoreLimitWarning": true
 }
