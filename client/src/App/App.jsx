@@ -45,7 +45,7 @@ export default class App extends React.Component {
     const { productInfoDetails } = this.state;
     return (
       <div>
-        <div className={styles.container}>
+        <div className={styles.container} data-test="appComponent">
           <div>
             <ProductImages />
           </div>

@@ -1,30 +1,23 @@
 import React from 'react';
-import Adapter from 'enzyme-adapter-react-16';
-import { configure } from 'enzyme';
-import renderer from 'react-test-renderer';
+// import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
-import App from '../client/src/App';
+import findByTestAttr from '../Utils/index';
+import App from '../client/src/App/App';
 
-configure({ adapter: new Adapter() });
+const setUp = (/* props = {} */) => {
+  const component = shallow(<App /* {...props} */ />);
+  return component;
+};
 
-describe('App', () => {
-  test('snapshot renders', () => {
-    const component = renderer.create(<App />);
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+describe('App Component', () => {
+  let component;
+  beforeEach(() => {
+    component = setUp();
   });
 
-  // enzyme testing
-  // it('renders the inner Counter', () => {
-  //   const wrapper = mount(<App />);
-  //   expect(wrapper.find(Counter).length).toEqual(1);
-  // });
+  it('Should render without errors', () => {
+    const wrapper = findByTestAttr(component, 'appComponent');
+    expect(wrapper.length).toBe(1);
+  });
 });
-
-// describe('Counter', () => {
-//   test('snapshot renders', () => {
-//     const component = renderer.create(<Counter counter={1} />);
-//     const tree = component.toJSON();
-//     expect(tree).toMatchSnapshot();
-//   });
-// });

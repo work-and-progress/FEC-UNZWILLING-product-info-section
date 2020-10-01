@@ -9,7 +9,8 @@
     "start": "webpack-dev-server --open",
     "seeding": "node -e 'require(\"./database/index.js\").seedingData()'",
     "test": "jest --config ./jest.config.json",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "clear_jest": "jest --clearCache"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "faker": "^5.1.0",
+    "identity-obj-proxy": "^3.0.0",
     "mongodb": "^3.6.2",
     "mongoose": "^5.10.6",
     "mongoose-dummy": "^1.0.8",
