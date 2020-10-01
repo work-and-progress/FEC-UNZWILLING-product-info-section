@@ -55,7 +55,7 @@ export default function ProductReviews(props) {
       <h1>RENDER ProductReviews</h1>
       <div>
         <h2>Star Rating</h2>
-        {altRenderStars(2)}
+        {altRenderStars(averageRating)}
       </div>
     </div>
   );
