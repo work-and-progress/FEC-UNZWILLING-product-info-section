@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.css';
+
 import ProductTitleAndLogo from '../ProductTitleAndLogo/ProductTitleAndLogo';
 import AddToBasket from '../AddToBasket/AddToBasket';
 import ProductReviews from '../ProductReviews/ProductReviews';
+import productInfoDetails from '../ProductPrice/ProductPrice';
 
 const propTypes = {
   productInfoDetails: PropTypes.instanceOf(Object),
@@ -32,6 +34,7 @@ export default class ProductDetails extends React.Component {
           <ProductTitleAndLogo productInfoDetails={productInfoDetails} />
           <AddToBasket updateBasket={updateBasket} />
           <ProductReviews productInfoDetails={productInfoDetails} />
+          <ProductPrice productInfoDetails={productInfoDetails} />
         </div>
       </div>
     );

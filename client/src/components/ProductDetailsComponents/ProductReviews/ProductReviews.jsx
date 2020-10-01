@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import PropTypes from 'prop-types';
 // import styles from './styles.css';
@@ -40,19 +41,19 @@ export default function ProductReviews(props) {
     return stars;
   };
 
-  console.log(
-    numberOfReviews,
-    fivStarReviews,
-    fourStarReviews,
-    threeStarReviews,
-    twoStarReviews,
-    oneStarReviews,
-    averageRating,
-  );
-  // console.log(review.averageRating)
+  // console.log(
+  //   numberOfReviews,
+  //   fivStarReviews,
+  //   fourStarReviews,
+  //   threeStarReviews,
+  //   twoStarReviews,
+  //   oneStarReviews,
+  //   averageRating,
+  // );
+
   return (
     <div>
-      <h1>RENDER ProductReviews</h1>
+      <h1>ProductReviews</h1>
       <div>
         <h2>Star Rating</h2>
         {altRenderStars(averageRating)}
