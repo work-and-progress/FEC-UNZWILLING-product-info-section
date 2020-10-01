@@ -1,0 +1,6 @@
+.temp {
+  box-sizing: border-box;
+  width: 100%;
+  border: solid red 5px;
+  padding: 5px;
+}

@@ -1,0 +1,11 @@
+.container {
+  display: flex; /* or inline-flex */
+  height: 300px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.container > * {
+  padding: 10px;
+  flex: 1;
+}
