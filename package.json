@@ -10,6 +10,7 @@
     "seeding": "node -e 'require(\"./database/index.js\").seedingData()'",
     "test": "jest --config ./jest.config.json",
     "test:watch": "npm run test -- --watch",
+    "test:coverage": "npx jest --coverage",
     "clear_jest": "jest --clearCache"
   },
   "repository": {
@@ -26,6 +27,7 @@
     "axios": "^0.20.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "emotion": "^10.0.27",
     "express": "^4.17.1",
     "faker": "^5.1.0",
     "identity-obj-proxy": "^3.0.0",
@@ -35,7 +37,11 @@
     "nodemon": "^2.0.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-custom-share": "^0.4.8",
     "react-dom": "^16.13.1",
+    "react-icons": "^3.11.0",
+    "react-share": "^4.3.0",
+    "react-social-sharing": "^3.3.0",
     "webpack": "^4.44.2"
   },
   "devDependencies": {
@@ -57,6 +63,7 @@
     "style-loader": "^1.2.1",
     "url-loader": "^4.1.0",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "source-map-loader": "^1.1.0"
   }
 }

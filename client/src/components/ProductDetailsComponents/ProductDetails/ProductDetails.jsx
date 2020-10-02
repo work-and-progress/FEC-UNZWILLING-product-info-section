@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/no-unresolved
+import styles from './styles.css';
+
 import ProductTitleAndLogo from '../ProductTitleAndLogo/ProductTitleAndLogo';
 import AddToBasket from '../AddToBasket/AddToBasket';
-import styles from './styles.css';
+import ProductReviews from '../ProductReviews/ProductReviews';
+import ProductPrice from '../ProductPrice/ProductPrice';
+import SocialSharingButtons from '../SocialSharingButtons/SocialSharingButtons';
 
 const propTypes = {
   productInfoDetails: PropTypes.instanceOf(Object),
@@ -30,6 +35,9 @@ export default class ProductDetails extends React.Component {
           <h1>ProductDetails</h1>
           <ProductTitleAndLogo productInfoDetails={productInfoDetails} />
           <AddToBasket updateBasket={updateBasket} />
+          <ProductReviews productInfoDetails={productInfoDetails} />
+          <ProductPrice productInfoDetails={productInfoDetails} />
+          <SocialSharingButtons />
         </div>
       </div>
     );
