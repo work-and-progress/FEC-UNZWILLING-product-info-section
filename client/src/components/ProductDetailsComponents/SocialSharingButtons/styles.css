@@ -1,0 +1,12 @@
+.icon > * {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 5px;
+  left: 2px;
+  list-style-type: none;
+  display:inline;
+}
+
+.li {
+  margin: 0 5px 0 0;
+}
