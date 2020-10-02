@@ -12,10 +12,11 @@ for (let i = 1; i < 101; i += 1) {
     category: faker.lorem.words(),
     name: faker.commerce.product(),
     price: faker.commerce.price(), // Need to find out $ format
-    discount: faker.random.number({
+    discountPercentage: faker.random.number({
       min: 10,
       max: 50,
     }),
+    discount: faker.random.boolean(),
     review: {
       numberOfReviews: faker.random.number({
         min: 1,

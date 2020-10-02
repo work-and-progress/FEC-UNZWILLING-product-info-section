@@ -19,7 +19,8 @@ const productSchema = new mongoose.Schema({
   category: String,
   name: { type: String, required: true },
   price: { type: Number, required: true },
-  discount: Number,
+  discountPercentage: Number,
+  discount: Boolean,
   review: {
     numberOfReviews: Number,
     fivStarReviews: Number,
@@ -72,9 +73,11 @@ const seedingData = () => {
   Product.insertMany(seeds)
     .then(() => {
       console.log('Data inserted');// Success
+      db.close();
     })
     .catch((error) => {
       console.log(error);// Failure
+      db.close();
     });
 };
 /*----------------------------------------------------------------*/

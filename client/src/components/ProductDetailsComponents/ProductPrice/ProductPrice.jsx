@@ -12,11 +12,31 @@ const defaultProps = {
 export default function ProductPrice(props) {
   const { productInfoDetails } = props;
 
-  const discountPrice = (price, discount) => (
-    price * ((100 - discount) / 100)
+  const discountPrice = (price, discountPercentage, discount) => {
+    if (discount === true) {
+      const updatedPrice = price * ((100 - discountPercentage) / 100);
+      return `$${updatedPrice}`;
+    }
+    return '';
+  };
+
+  const discountDescription = (discountPercentage, discount) => {
+    if (discount === true) {
+      return `YOU SAVE: - ${discountPercentage}%`;
+    }
+    return '';
+  };
+
+  const discountDescriptionElement = discountDescription(
+    productInfoDetails.discountPercentage,
+    productInfoDetails.discount,
   );
 
-  const discountedPrice = discountPrice(productInfoDetails.price, productInfoDetails.discount);
+  const discountedPriceElement = discountPrice(
+    productInfoDetails.price,
+    productInfoDetails.discountPercentage,
+    productInfoDetails.discount,
+  );
 
   return (
     <div>
@@ -26,13 +46,13 @@ export default function ProductPrice(props) {
           IN STOCK | SHIPS WITHIN 1-2 DAYS
         </p>
         <p>
-          {`YOU SAVE: - ${productInfoDetails.discount}%`}
+          {discountDescriptionElement}
         </p>
         <p>
           {`$${productInfoDetails.price}`}
         </p>
         <p>
-          {`$${discountedPrice}`}
+          {discountedPriceElement}
         </p>
         <p>
           WRITE A REVIEW
