@@ -12,7 +12,7 @@ import styles from './styles.css';
 export default function SocialSharingButtons() {
   return (
     <div>
-      <h1>SOCIAL SHARE</h1>
+      <h1>Social Share</h1>
       <ul className={styles.icon}>
         <li className={styles.li}>
           <FacebookShareButton

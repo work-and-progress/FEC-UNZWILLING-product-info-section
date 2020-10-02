@@ -20,6 +20,7 @@ export default function ProductPrice(props) {
 
   return (
     <div>
+      <h1>Product Price</h1>
       <div>
         <p>
           IN STOCK | SHIPS WITHIN 1-2 DAYS
