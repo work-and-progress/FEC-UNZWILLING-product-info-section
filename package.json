@@ -10,9 +10,8 @@
     "seeding": "node -e 'require(\"./database/index.js\").seedingData()'",
     "test": "jest --config ./jest.config.json",
     "test:watch": "npm run test -- --watch",
-    "test:coverage":"npx jest --coverage",
+    "test:coverage": "npx jest --coverage",
     "clear_jest": "jest --clearCache"
-
   },
   "repository": {
     "type": "git",
@@ -59,6 +58,7 @@
     "style-loader": "^1.2.1",
     "url-loader": "^4.1.0",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "source-map-loader": "^1.1.0"
   }
 }

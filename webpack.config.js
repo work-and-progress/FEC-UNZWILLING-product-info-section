@@ -12,6 +12,11 @@ module.exports = {
         },
       },
       {
+        test: /\.js$/,
+        enforce: 'pre',
+        use: ['source-map-loader'],
+      },
+      {
         test: /\.css$/i,
         exclude: /node_modules/,
         use: [

@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/no-unresolved
 import styles from './styles.css';
 
 import ProductTitleAndLogo from '../ProductTitleAndLogo/ProductTitleAndLogo';
 import AddToBasket from '../AddToBasket/AddToBasket';
 import ProductReviews from '../ProductReviews/ProductReviews';
-import productInfoDetails from '../ProductPrice/ProductPrice';
+import ProductPrice from '../ProductPrice/ProductPrice';
 
 const propTypes = {
   productInfoDetails: PropTypes.instanceOf(Object),

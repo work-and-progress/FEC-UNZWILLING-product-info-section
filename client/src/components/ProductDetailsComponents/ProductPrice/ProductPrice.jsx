@@ -14,7 +14,14 @@ export default function ProductPrice(props) {
 
   return (
     <div>
-      <h1>ProductPrice</h1>
+      <div>
+        <p>
+          {`YOU SAVE: - ${productInfoDetails.discount}%`}
+        </p>
+        <p>
+          {productInfoDetails.price}
+        </p>
+      </div>
     </div>
   );
 }

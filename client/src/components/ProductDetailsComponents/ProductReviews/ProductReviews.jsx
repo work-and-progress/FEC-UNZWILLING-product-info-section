@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styles from './styles.css';
+import styles from './styles.css';
 import starImage from './star.png';
 import emptyStarImage from './empty_star.png';
 
@@ -28,35 +28,25 @@ export default function ProductReviews(props) {
     },
   } = props;
 
-  const altRenderStars = (num) => {
-    const stars = [];
-    for (let i = 0; i < 5; i += 1) {
-      stars.push(<img
-        style={{ width: '30px' }}
-        src={i < num ? starImage : emptyStarImage}
-        alt="rating"
-        key={i}
-      />);
-    }
-    return stars;
+  const averageRatingPercentage = (rating) => {
+    const percentageRating = (rating / 5) * 100;
+    return percentageRating;
   };
 
-  // console.log(
-  //   numberOfReviews,
-  //   fivStarReviews,
-  //   fourStarReviews,
-  //   threeStarReviews,
-  //   twoStarReviews,
-  //   oneStarReviews,
-  //   averageRating,
-  // );
+  const averageRatingPercentageValue = averageRatingPercentage(averageRating);
 
   return (
     <div>
       <h1>ProductReviews</h1>
       <div>
         <h2>Star Rating</h2>
-        {altRenderStars(averageRating)}
+      </div>
+      <div className={styles.ratings}>
+        <div className={styles.emptyStars} />
+        <div
+          className={styles.fullStars}
+          style={{ width: `${averageRatingPercentageValue}` }}
+        />
       </div>
     </div>
   );

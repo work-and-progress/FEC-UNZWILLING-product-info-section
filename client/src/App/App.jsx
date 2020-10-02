@@ -36,9 +36,7 @@ export default class App extends React.Component {
   updateBasket(numberOfItemsAdded) {
     this.setState((previousState) => ({
       numberOfItemsInBasket: previousState.numberOfItemsInBasket + numberOfItemsAdded,
-    }), () => {
-      console.log('UPDATED NUMBER OF ITEMS IN THE BASKET : ', this.state.numberOfItemsInBasket);
-    });
+    }));
   }
 
   render() {
