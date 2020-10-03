@@ -8,6 +8,8 @@ import AddToBasket from '../AddToBasket/AddToBasket';
 import ProductReviews from '../ProductReviews/ProductReviews';
 import ProductPrice from '../ProductPrice/ProductPrice';
 import SocialSharingButtons from '../SocialSharingButtons/SocialSharingButtons';
+import ProductDescription from '../ProductDescription/ProductDescription';
+import ProductSpecifications from '../ProductSpecifications/ProductSpecifications';
 
 const propTypes = {
   productInfoDetails: PropTypes.instanceOf(Object),
@@ -38,6 +40,8 @@ export default class ProductDetails extends React.Component {
           <ProductReviews productInfoDetails={productInfoDetails} />
           <ProductPrice productInfoDetails={productInfoDetails} />
           <SocialSharingButtons />
+          <ProductDescription productInfoDetails={productInfoDetails} />
+          <ProductSpecifications productInfoDetails={productInfoDetails} />
         </div>
       </div>
     );

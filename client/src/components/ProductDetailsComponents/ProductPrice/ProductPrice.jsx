@@ -12,29 +12,32 @@ const defaultProps = {
 export default function ProductPrice(props) {
   const { productInfoDetails } = props;
 
-  const discountPrice = (price, discountPercentage, discount) => {
-    if (discount === true) {
-      const updatedPrice = price * ((100 - discountPercentage) / 100);
+  const roundUpPrice = Math.ceil((productInfoDetails.price) / 10) * 10;
+  const roundUpDiscount = Math.ceil((productInfoDetails.discountPercentage) / 10) * 10;
+
+  const discountedPrice = (price, discountPercentage, discount) => {
+    if (discount === 'Yes') {
+      const updatedPrice = Math.floor((price * ((100 - discountPercentage) / 100))) - 0.01;
       return `$${updatedPrice}`;
     }
     return '';
   };
 
   const discountDescription = (discountPercentage, discount) => {
-    if (discount === true) {
+    if (discount === 'Yes') {
       return `YOU SAVE: - ${discountPercentage}%`;
     }
     return '';
   };
 
   const discountDescriptionElement = discountDescription(
-    productInfoDetails.discountPercentage,
+    roundUpDiscount,
     productInfoDetails.discount,
   );
 
-  const discountedPriceElement = discountPrice(
-    productInfoDetails.price,
-    productInfoDetails.discountPercentage,
+  const discountedPriceElement = discountedPrice(
+    roundUpPrice,
+    roundUpDiscount,
     productInfoDetails.discount,
   );
 
@@ -49,7 +52,7 @@ export default function ProductPrice(props) {
           {discountDescriptionElement}
         </p>
         <p>
-          {`$${productInfoDetails.price}`}
+          {`$${roundUpPrice}`}
         </p>
         <p>
           {discountedPriceElement}
