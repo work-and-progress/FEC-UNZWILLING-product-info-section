@@ -19,7 +19,8 @@ const productSchema = new mongoose.Schema({
   category: String,
   name: { type: String, required: true },
   price: { type: Number, required: true },
-  discount: Number,
+  discountPercentage: Number,
+  discount: String,
   review: {
     numberOfReviews: Number,
     fivStarReviews: Number,
@@ -35,16 +36,16 @@ const productSchema = new mongoose.Schema({
     color: String,
     countryOfOrigin: String,
     substance: String,
-    electricalPowerSupplyNeeded: Boolean,
+    electricalPowerSupplyNeeded: String,
     voltage: Number,
     capacityMl: Number,
-    safetyShutOff: Boolean,
+    safetyShutOff: String,
     motor: String,
-    hiddenCordStorage: Boolean,
+    hiddenCordStorage: String,
     programs: Number,
     blade: String,
     speeds: Number,
-    lcdDisplay: Boolean,
+    lcdDisplay: String,
     powerInput: Number,
   },
   measurement: {
@@ -72,9 +73,11 @@ const seedingData = () => {
   Product.insertMany(seeds)
     .then(() => {
       console.log('Data inserted');// Success
+      db.close();
     })
     .catch((error) => {
       console.log(error);// Failure
+      db.close();
     });
 };
 /*----------------------------------------------------------------*/

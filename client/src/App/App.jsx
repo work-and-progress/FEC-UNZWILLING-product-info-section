@@ -27,6 +27,9 @@ export default class App extends React.Component {
         this.setState(() => ({
           productInfoDetails: response.data,
         }));
+        // this.setState({
+        //   productInfoDetails: response.data,
+        // });
       })
       .catch(() => {
         // console.err(error);

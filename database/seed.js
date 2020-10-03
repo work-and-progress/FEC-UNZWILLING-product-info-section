@@ -4,6 +4,12 @@ const faker = require('faker');
 // this is an example.
 // Do not use the variable so it can generate random ten images for each random product.
 // const randomImages = new Array(10).fill(null).map(e => e = faker.fake("{{image.image}}"))
+const changeBooleanToYesOrNo = (boolean) => {
+  if (boolean === true) {
+    return 'Yes';
+  }
+  return 'No';
+};
 
 const bunchOfSeeds = [];
 for (let i = 1; i < 101; i += 1) {
@@ -11,11 +17,16 @@ for (let i = 1; i < 101; i += 1) {
     id: i,
     category: faker.lorem.words(),
     name: faker.commerce.product(),
-    price: faker.commerce.price(), // Need to find out $ format
-    discount: faker.random.number({
+    price: faker.random.number({
+      min: 100,
+      max: 300,
+      precision: 0.01,
+    }), // Need to find out $ format
+    discountPercentage: faker.random.number({
       min: 10,
       max: 50,
     }),
+    discount: changeBooleanToYesOrNo(faker.random.boolean()),
     review: {
       numberOfReviews: faker.random.number({
         min: 1,
@@ -46,7 +57,7 @@ for (let i = 1; i < 101; i += 1) {
         max: 5,
       }),
     }, // Need to change ??
-    description: faker.lorem.sentence(),
+    description: faker.lorem.paragraphs(),
     specificationItemNo: faker.random.number({
       min: 1,
       max: 999,
@@ -55,7 +66,7 @@ for (let i = 1; i < 101; i += 1) {
       color: faker.commerce.color(),
       countryOfOrigin: faker.address.country(),
       substance: faker.lorem.sentence(),
-      electricalPowerSupplyNeeded: faker.random.boolean(),
+      electricalPowerSupplyNeeded: changeBooleanToYesOrNo(faker.random.boolean()),
       voltage: faker.random.number({
         min: 110,
         max: 220,
@@ -64,9 +75,9 @@ for (let i = 1; i < 101; i += 1) {
         min: 1000,
         max: 2000,
       }),
-      safetyShutOff: faker.random.boolean(),
+      safetyShutOff: changeBooleanToYesOrNo(faker.random.boolean()),
       motor: faker.lorem.sentence(),
-      hiddenCordStorage: faker.random.boolean(),
+      hiddenCordStorage: changeBooleanToYesOrNo(faker.random.boolean()),
       programs: faker.random.number({
         min: 5,
         max: 20,
@@ -76,7 +87,7 @@ for (let i = 1; i < 101; i += 1) {
         min: 5,
         max: 20,
       }),
-      lcdDisplay: faker.random.boolean(),
+      lcdDisplay: changeBooleanToYesOrNo(faker.random.boolean()),
       powerInput: faker.random.number({
         min: 1000,
         max: 2000,
@@ -86,22 +97,27 @@ for (let i = 1; i < 101; i += 1) {
       netWeight: faker.random.number({
         min: 10,
         max: 20,
+        precision: 0.01,
       }),
       capacityQt: faker.random.number({
         min: 1,
         max: 5,
+        precision: 0.01,
       }),
       lengthOfProduct: faker.random.number({
         min: 5,
         max: 10,
+        precision: 0.01,
       }),
       widthOfProduct: faker.random.number({
         min: 5,
         max: 10,
+        precision: 0.01,
       }),
       heightOfProduct: faker.random.number({
         min: 10,
         max: 20,
+        precision: 0.01,
       }),
     },
     images: new Array(10).fill(null).map(() => faker.fake('{{image.image}}')),
