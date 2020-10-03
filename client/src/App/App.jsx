@@ -4,7 +4,7 @@ import styles from './styles.css';
 
 // import TopNavBar from './components/top_bar_components/TopNavBar/TopNavBar';
 import ProductDetails from '../components/ProductDetailsComponents/ProductDetails/ProductDetails';
-import ProductImages from '../components/image_components/ProductImages';
+import ProductImages from '../components/image_components/ProductImages/ProductImages';
 
 export default class App extends React.Component {
   constructor(props) {

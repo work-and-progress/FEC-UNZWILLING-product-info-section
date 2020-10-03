@@ -1,4 +1,5 @@
 import React from 'react';
+import MainImage from '../MainImage/MainImage';
 
 class ProductImages extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class ProductImages extends React.Component {
     return (
       <div>
         <h1>RENDER ProductImages</h1>
+        <MainImage />
       </div>
     );
   }
