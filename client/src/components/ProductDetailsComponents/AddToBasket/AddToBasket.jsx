@@ -3,14 +3,6 @@ import PropTypes from 'prop-types';
 
 import styles from './styles.css';
 
-const propTypes = {
-  updateBasket: PropTypes.func,
-};
-
-const defaultProps = {
-  updateBasket: null,
-};
-
 export default class AddToBasket extends React.Component {
   constructor(props) {
     super(props);
@@ -27,7 +19,6 @@ export default class AddToBasket extends React.Component {
     const { updateBasket } = this.props;
     const NumberOfAddedItemInBasket = Number(numberOfItemsInBasketTemp);
     updateBasket(NumberOfAddedItemInBasket);
-    // console.log('UPDATED BASKET : ', updateBasket(321));
   }
 
   handleChange(e) {
@@ -63,6 +54,14 @@ export default class AddToBasket extends React.Component {
     );
   }
 }
+
+const propTypes = {
+  updateBasket: PropTypes.func,
+};
+
+const defaultProps = {
+  updateBasket: null,
+};
 
 AddToBasket.propTypes = propTypes;
 AddToBasket.defaultProps = defaultProps;

@@ -5,14 +5,6 @@ import styles from './styles.css';
 import starImage from './star.png';
 import emptyStarImage from './empty_star.png';
 
-const propTypes = {
-  productInfoDetails: PropTypes.instanceOf(Object),
-};
-
-const defaultProps = {
-  productInfoDetails: null,
-};
-
 export default function ProductReviews(props) {
   const {
     productInfoDetails: {
@@ -51,6 +43,14 @@ export default function ProductReviews(props) {
     </div>
   );
 }
+
+const propTypes = {
+  productInfoDetails: PropTypes.instanceOf(Object),
+};
+
+const defaultProps = {
+  productInfoDetails: null,
+};
 
 ProductReviews.propTypes = propTypes;
 ProductReviews.defaultProps = defaultProps;

@@ -2,14 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.css';
 
-const propTypes = {
-  currentImage: PropTypes.string,
-};
-
-const defaultProps = {
-  currentImage: null,
-};
-
 export default class MainImage extends React.Component {
   constructor(props) {
     super(props);
@@ -33,6 +25,14 @@ export default class MainImage extends React.Component {
     );
   }
 }
+
+const propTypes = {
+  currentImage: PropTypes.string,
+};
+
+const defaultProps = {
+  currentImage: null,
+};
 
 MainImage.propTypes = propTypes;
 MainImage.defaultProps = defaultProps;

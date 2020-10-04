@@ -1,5 +1,6 @@
 import React from 'react';
 import ShowMoreText from 'react-show-more-text';
+import PropTypes from 'prop-types';
 
 export default class ProductDescription extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ export default class ProductDescription extends React.Component {
   }
 
   render() {
+    const { productInfoDetails } = this.props;
     return (
       <div>
         <h1>Product Description</h1>
@@ -21,9 +23,20 @@ export default class ProductDescription extends React.Component {
           expanded={false}
           width={600}
         >
-          {this.props.productInfoDetails.description}
+          {productInfoDetails.description}
         </ShowMoreText>
       </div>
     );
   }
 }
+
+const propTypes = {
+  productInfoDetails: PropTypes.instanceOf(Object),
+};
+
+const defaultProps = {
+  productInfoDetails: null,
+};
+
+ProductDescription.propTypes = propTypes;
+ProductDescription.defaultProps = defaultProps;

@@ -1,13 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // Product prices should be refactored.
-const propTypes = {
-  productInfoDetails: PropTypes.instanceOf(Object),
-};
-
-const defaultProps = {
-  productInfoDetails: null,
-};
 
 export default function ProductPrice(props) {
   const { productInfoDetails } = props;
@@ -64,6 +57,14 @@ export default function ProductPrice(props) {
     </div>
   );
 }
+
+const propTypes = {
+  productInfoDetails: PropTypes.instanceOf(Object),
+};
+
+const defaultProps = {
+  productInfoDetails: null,
+};
 
 ProductPrice.propTypes = propTypes;
 ProductPrice.defaultProps = defaultProps;

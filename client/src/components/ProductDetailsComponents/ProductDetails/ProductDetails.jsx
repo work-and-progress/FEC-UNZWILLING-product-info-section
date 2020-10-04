@@ -11,16 +11,6 @@ import SocialSharingButtons from '../SocialSharingButtons/SocialSharingButtons';
 import ProductDescription from '../ProductDescription/ProductDescription';
 import ProductSpecifications from '../ProductSpecifications/ProductSpecifications';
 
-const propTypes = {
-  productInfoDetails: PropTypes.instanceOf(Object),
-  updateBasket: PropTypes.func,
-};
-
-const defaultProps = {
-  productInfoDetails: null,
-  updateBasket: null,
-};
-
 export default class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -47,6 +37,16 @@ export default class ProductDetails extends React.Component {
     );
   }
 }
+
+const propTypes = {
+  productInfoDetails: PropTypes.instanceOf(Object),
+  updateBasket: PropTypes.func,
+};
+
+const defaultProps = {
+  productInfoDetails: null,
+  updateBasket: null,
+};
 
 ProductDetails.propTypes = propTypes;
 ProductDetails.defaultProps = defaultProps;
