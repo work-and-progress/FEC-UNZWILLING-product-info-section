@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './styles.css';
 
 const propTypes = {
-  currentImg: PropTypes.string,
+  currentImage: PropTypes.string,
 };
 
 const defaultProps = {
-  currentImg: null,
+  currentImage: null,
 };
 
 export default class MainImage extends React.Component {
@@ -18,13 +19,14 @@ export default class MainImage extends React.Component {
 
   render() {
     const {
-      currentImg,
+      currentImage,
     } = this.props;
+
     return (
-      <div>
-        <h1>RENDER MainImage</h1>
+      <div className={styles.wrapper}>
+        <h1>RENDER currentImage</h1>
         <img
-          src={currentImg}
+          src={currentImage}
           alt="Main"
         />
       </div>

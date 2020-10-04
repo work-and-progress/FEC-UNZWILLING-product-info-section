@@ -12,7 +12,7 @@ export default class App extends React.Component {
     this.state = {
       productInfoDetails: {},
       numberOfItemsInBasket: 0,
-      productInfoDetailsImages: [],
+      cardList: [],
     };
     this.getOneProductDetails = this.getOneProductDetails.bind(this);
     this.updateBasket = this.updateBasket.bind(this);
@@ -27,7 +27,7 @@ export default class App extends React.Component {
       .then((response) => {
         this.setState(() => ({
           productInfoDetails: response.data,
-          productInfoDetailsImages: response.data.images,
+          cardList: response.data.images,
         }));
       })
       .catch(() => {
@@ -44,19 +44,19 @@ export default class App extends React.Component {
   render() {
     const {
       productInfoDetails,
-      productInfoDetailsImages,
+      cardList,
     } = this.state;
 
     return (
-      <div>
-        <div className={styles.container} data-test="appComponent">
-          <div>
+      <div className={styles.container}>
+        <div data-test="appComponent">
+          <div className={styles.productImages}>
             <ProductImages
               productInfoDetails={productInfoDetails}
-              productInfoDetailsImages={productInfoDetailsImages}
+              cardList={cardList}
             />
           </div>
-          <div>
+          <div className={styles.productDetails}>
             <ProductDetails
               productInfoDetails={productInfoDetails}
               updateBasket={this.updateBasket}

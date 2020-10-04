@@ -139,8 +139,6 @@ bunchOfSeeds[0].images = [
   'https://unzwillingimg.s3-us-west-1.amazonaws.com/images/7.jpg',
   'https://unzwillingimg.s3-us-west-1.amazonaws.com/images/8.jpg',
   'https://unzwillingimg.s3-us-west-1.amazonaws.com/images/9.jpg',
-  'https://unzwillingimg.s3-us-west-1.amazonaws.com/images/10.jpg',
-
 ];
 
 module.exports = {
