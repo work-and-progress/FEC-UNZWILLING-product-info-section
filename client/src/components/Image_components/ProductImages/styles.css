@@ -1,0 +1,37 @@
+/*
+.container {
+  float: right;
+  width: 25 %;
+  height: 1000 px;
+} */
+
+.mainImage img {
+  height: 500px;
+  width: 500px;
+}
+
+.carouselComponent {
+  display:flex;
+  justify-content: center;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  width: 60rem;
+}
+
+.carouselComponent::-webkit-scrollbar {
+  display: none;
+}
+
+.carouselComponent img {
+  height: 200px;
+  width: 200px;
+}
+
+.carouselComponentWrapper {
+  display: flex;
+}
+
+.carouselComponentWrapper button {
+  border: none;
+  background-color: transparent;
+}

@@ -126,6 +126,21 @@ for (let i = 1; i < 101; i += 1) {
   bunchOfSeeds.push(seeding);
 }
 
+// Product No. 1 always has real images
+bunchOfSeeds[0].images = [];
+bunchOfSeeds[0].images = [
+  'https://unzwillingimg.s3-us-west-1.amazonaws.com/images/main.jpg',
+  'https://unzwillingimg.s3-us-west-1.amazonaws.com/images/1.jpg',
+  'https://unzwillingimg.s3-us-west-1.amazonaws.com/images/2.jpg',
+  'https://unzwillingimg.s3-us-west-1.amazonaws.com/images/3.jpg',
+  'https://unzwillingimg.s3-us-west-1.amazonaws.com/images/4.jpg',
+  'https://unzwillingimg.s3-us-west-1.amazonaws.com/images/5.jpg',
+  'https://unzwillingimg.s3-us-west-1.amazonaws.com/images/6.jpg',
+  'https://unzwillingimg.s3-us-west-1.amazonaws.com/images/7.jpg',
+  'https://unzwillingimg.s3-us-west-1.amazonaws.com/images/8.jpg',
+  'https://unzwillingimg.s3-us-west-1.amazonaws.com/images/9.jpg',
+];
+
 module.exports = {
   bunchOfSeeds,
 };

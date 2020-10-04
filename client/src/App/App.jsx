@@ -4,7 +4,7 @@ import styles from './styles.css';
 
 // import TopNavBar from './components/top_bar_components/TopNavBar/TopNavBar';
 import ProductDetails from '../components/ProductDetailsComponents/ProductDetails/ProductDetails';
-import ProductImages from '../components/image_components/ProductImages';
+import ProductImages from '../components/image_components/ProductImages/ProductImages';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -12,6 +12,7 @@ export default class App extends React.Component {
     this.state = {
       productInfoDetails: {},
       numberOfItemsInBasket: 0,
+      cardList: [],
     };
     this.getOneProductDetails = this.getOneProductDetails.bind(this);
     this.updateBasket = this.updateBasket.bind(this);
@@ -26,10 +27,8 @@ export default class App extends React.Component {
       .then((response) => {
         this.setState(() => ({
           productInfoDetails: response.data,
+          cardList: response.data.images,
         }));
-        // this.setState({
-        //   productInfoDetails: response.data,
-        // });
       })
       .catch(() => {
         // console.err(error);
@@ -43,14 +42,21 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { productInfoDetails } = this.state;
+    const {
+      productInfoDetails,
+      cardList,
+    } = this.state;
+
     return (
-      <div>
-        <div className={styles.container} data-test="appComponent">
-          <div>
-            <ProductImages />
+      <div className={styles.container}>
+        <div data-test="appComponent">
+          <div className={styles.productImages}>
+            <ProductImages
+              productInfoDetails={productInfoDetails}
+              cardList={cardList}
+            />
           </div>
-          <div>
+          <div className={styles.productDetails}>
             <ProductDetails
               productInfoDetails={productInfoDetails}
               updateBasket={this.updateBasket}
