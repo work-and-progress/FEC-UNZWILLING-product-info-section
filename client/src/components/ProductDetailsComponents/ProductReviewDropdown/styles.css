@@ -5,22 +5,33 @@
   color: #b1b1b1;
   overflow: hidden;
 }
-.fullStars {
+
+.percentage {
+  color: #b1b1b1;
+}
+
+.fullBars {
   position: absolute;
   left: 0;
   top: 0;
   white-space: nowrap;
   overflow: hidden;
-  color: #fde16d;
+  color: #ffc302;
 }
-.emptyStars:before, .fullStars:before {
+
+.star {
+  color: #ffc302;
+}
+.emptyBars:before, .fullBars:before {
   content:"▄▄▄▄▄";
   font-size: 14pt;
 }
-.emptyStars:before {
+
+.emptyBars:before {
   -webkit-text-stroke: 1px #848484;
 }
-.fullStars:before {
+
+.fullBars:before {
   -webkit-text-stroke: 1px orange;
 }
 
