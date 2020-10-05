@@ -26,7 +26,7 @@ for (let i = 1; i < 101; i += 1) {
       min: 10,
       max: 50,
     }),
-    discount: changeBooleanToYesOrNo(faker.random.boolean()),
+    discount: 'Yes',
     review: {
       numberOfReviews: faker.random.number({
         min: 1,
@@ -55,6 +55,7 @@ for (let i = 1; i < 101; i += 1) {
       averageRating: faker.random.number({
         min: 0,
         max: 5,
+        precision: 0.01,
       }),
     }, // Need to change ??
     description: faker.lorem.paragraphs(),
@@ -65,7 +66,7 @@ for (let i = 1; i < 101; i += 1) {
     characteristics: {
       color: faker.commerce.color(),
       countryOfOrigin: faker.address.country(),
-      substance: faker.lorem.sentence(),
+      substance: faker.lorem.word(),
       electricalPowerSupplyNeeded: changeBooleanToYesOrNo(faker.random.boolean()),
       voltage: faker.random.number({
         min: 110,
@@ -76,13 +77,13 @@ for (let i = 1; i < 101; i += 1) {
         max: 2000,
       }),
       safetyShutOff: changeBooleanToYesOrNo(faker.random.boolean()),
-      motor: faker.lorem.sentence(),
+      motor: faker.lorem.word(),
       hiddenCordStorage: changeBooleanToYesOrNo(faker.random.boolean()),
       programs: faker.random.number({
         min: 5,
         max: 20,
       }),
-      blade: faker.lorem.sentence(),
+      blade: faker.lorem.word(),
       speeds: faker.random.number({
         min: 5,
         max: 20,

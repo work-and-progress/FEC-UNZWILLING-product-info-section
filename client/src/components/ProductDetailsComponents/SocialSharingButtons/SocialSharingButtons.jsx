@@ -11,8 +11,7 @@ import styles from './styles.css';
 
 export default function SocialSharingButtons() {
   return (
-    <div>
-      <h1>Social Share</h1>
+    <div className={styles.container}>
       <ul className={styles.icon}>
         <li className={styles.li}>
           <FacebookShareButton

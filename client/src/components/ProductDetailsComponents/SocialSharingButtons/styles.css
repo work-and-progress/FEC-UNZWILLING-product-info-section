@@ -1,3 +1,8 @@
+.container {
+  display: inline-block;
+  position: relative;
+  left: 200px;
+}
 .icon > * {
   position: relative;
   /* Adjust these values accordingly */

@@ -1,0 +1,24 @@
+p {
+  margin: 0;
+}
+.container {
+  box-sizing: border-box;
+  width: 50%;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  vertical-align: top;
+  text-align: right;
+}
+
+.roundUpPrice {
+  font-family: futura book;
+  color: #27221d;
+  font-size: .875rem;
+  text-transform: none;
+  line-height: 18px;
+  letter-spacing: .5px;
+  position: relative;
+  text-decoration: line-through;
+  display: inline-block;
+}

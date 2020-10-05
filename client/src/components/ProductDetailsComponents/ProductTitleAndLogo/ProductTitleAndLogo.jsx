@@ -3,14 +3,6 @@ import PropTypes from 'prop-types';
 import styles from './styles.css';
 import logo from './logo.png';
 
-const propTypes = {
-  productInfoDetails: PropTypes.instanceOf(Object),
-};
-
-const defaultProps = {
-  productInfoDetails: null,
-};
-
 export default class ProductTitleAndLogo extends React.Component {
   constructor(props) {
     super(props);
@@ -21,26 +13,35 @@ export default class ProductTitleAndLogo extends React.Component {
   render() {
     const { productInfoDetails } = this.props;
     return (
-      <div className={styles.temp}>
-        <h1>ProductTitleAndLogo</h1>
-        <h2>
-          Product Category :
-          {productInfoDetails.category}
-        </h2>
-        <h2>
-          Product Name :
-          {productInfoDetails.name}
-        </h2>
-        <span>
-          <img src={logo} className={styles.logo} alt="logo" />
-        </span>
-        <h3>
-          NEW
-        </h3>
+      <div className={styles.container}>
+        <div className={styles.categoryAndNameContainer}>
+          <h2 className={styles.category}>
+            {productInfoDetails.category}
+          </h2>
+          <h2 className={styles.name}>
+            {productInfoDetails.name}
+          </h2>
+          <span className={styles.logoContainer}>
+            <img src={logo} className={styles.logo} alt="logo" />
+          </span>
+        </div>
+        <div className={styles.newContainer}>
+          <span className={styles.new}>
+            NEW
+          </span>
+        </div>
       </div>
     );
   }
 }
+
+const propTypes = {
+  productInfoDetails: PropTypes.instanceOf(Object),
+};
+
+const defaultProps = {
+  productInfoDetails: null,
+};
 
 ProductTitleAndLogo.propTypes = propTypes;
 ProductTitleAndLogo.defaultProps = defaultProps;

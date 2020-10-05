@@ -11,16 +11,6 @@ import SocialSharingButtons from '../SocialSharingButtons/SocialSharingButtons';
 import ProductDescription from '../ProductDescription/ProductDescription';
 import ProductSpecifications from '../ProductSpecifications/ProductSpecifications';
 
-const propTypes = {
-  productInfoDetails: PropTypes.instanceOf(Object),
-  updateBasket: PropTypes.func,
-};
-
-const defaultProps = {
-  productInfoDetails: null,
-  updateBasket: null,
-};
-
 export default class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -32,13 +22,19 @@ export default class ProductDetails extends React.Component {
     const { productInfoDetails, updateBasket } = this.props;
     // console.log('PRODUCT DETAILS : ', productInfoDetails);
     return (
-      <div className={styles.temp}>
+      <div className={styles.container}>
         <div>
-          <h1>ProductDetails</h1>
           <ProductTitleAndLogo productInfoDetails={productInfoDetails} />
-          <AddToBasket updateBasket={updateBasket} />
+          <div className={styles.basketAndPrice}>
+            <AddToBasket updateBasket={updateBasket} />
+            <ProductPrice productInfoDetails={productInfoDetails} />
+          </div>
+          <div className={styles.shippingInfo}>
+            <p>
+              IN STOCK | SHIPS WITHIN 1-2 DAYS
+            </p>
+          </div>
           <ProductReviews productInfoDetails={productInfoDetails} />
-          <ProductPrice productInfoDetails={productInfoDetails} />
           <SocialSharingButtons />
           <ProductDescription productInfoDetails={productInfoDetails} />
           <ProductSpecifications productInfoDetails={productInfoDetails} />
@@ -47,6 +43,16 @@ export default class ProductDetails extends React.Component {
     );
   }
 }
+
+const propTypes = {
+  productInfoDetails: PropTypes.instanceOf(Object),
+  updateBasket: PropTypes.func,
+};
+
+const defaultProps = {
+  productInfoDetails: null,
+  updateBasket: null,
+};
 
 ProductDetails.propTypes = propTypes;
 ProductDetails.defaultProps = defaultProps;

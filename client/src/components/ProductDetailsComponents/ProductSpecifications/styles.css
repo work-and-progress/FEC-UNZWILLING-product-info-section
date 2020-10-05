@@ -1,0 +1,78 @@
+ul {
+  padding-inline-start: 0;
+}
+.container {
+  opacity: 1;
+  font-family: futura book;
+  color: #27221d;
+  font-size: .9375rem;
+  text-transform: none;
+  line-height: 22px;
+  display: block;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.attribute {
+  border-top: 1px solid #dcdcdc;
+  padding: 0;
+  display: list-item;
+  text-align: -webkit-match-parent;
+  list-style: none;
+  font-family: futura book;
+  color: #27221d;
+  font-size: .9375rem;
+  text-transform: none;
+  line-height: 22px;
+}
+.attribute:last-child {
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.title {
+  font-family: futura book;
+  font-weight: bold;
+  color: #27221d;
+  font-size: .9375rem;
+  text-transform: uppercase;
+  display: inline-block;
+  margin: 10px 0;
+  line-height: 22px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.key {
+  background: #f2f0ee;
+  word-break: break-word;
+  font-family: futura book;
+  font-weight: bold;
+  color: #27221d;
+  font-size: .875rem;
+  text-transform: none;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  max-width: 184px;
+  width: 44.7%;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 24px;
+  text-align: -webkit-match-parent;
+  list-style: none;
+}
+
+.value {
+  padding: 5px 10px;
+  box-sizing: border-box;
+  width: 44.7%;
+  max-width: 184px;
+  display: inline-block;
+  vertical-align: top;
+  font-family: futura book;
+  color: #27221d;
+  font-size: 1rem;
+  text-transform: none;
+  line-height: 24px;
+}
+
+.text {
+  text-overflow: ellipsis;
+}
