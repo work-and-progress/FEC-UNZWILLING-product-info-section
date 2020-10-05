@@ -19,7 +19,6 @@ export default function ProductReviews(props) {
       } = {},
     },
   } = props;
-  console.log(averageRating);
 
   const averageRatingPercentage = (rating) => {
     const percentageRating = (rating / 5) * 100;
