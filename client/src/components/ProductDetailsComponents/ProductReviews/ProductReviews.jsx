@@ -5,46 +5,55 @@ import styles from './styles.css';
 import starImage from './star.png';
 import emptyStarImage from './empty_star.png';
 
-export default function ProductReviews(props) {
-  const {
-    productInfoDetails: {
-      review: {
-        numberOfReviews,
-        fivStarReviews,
-        fourStarReviews,
-        threeStarReviews,
-        twoStarReviews,
-        oneStarReviews,
-        averageRating,
-      } = {},
-    },
-  } = props;
+export default class ProductReviews extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
 
-  const averageRatingPercentage = (rating) => {
-    const percentageRating = (rating / 5) * 100;
-    return percentageRating;
-  };
+    };
+  }
 
-  const averageRatingPercentageValue = averageRatingPercentage(averageRating);
+  render() {
+    const {
+      productInfoDetails: {
+        review: {
+          numberOfReviews,
+          fivStarReviews,
+          fourStarReviews,
+          threeStarReviews,
+          twoStarReviews,
+          oneStarReviews,
+          averageRating,
+        } = {},
+      },
+    } = this.props;
 
-  return (
-    <div className={styles.container}>
-      <div className={styles.ratings}>
-        <div className={styles.emptyStars} />
-        <div
-          className={styles.fullStars}
-          style={{ width: `${averageRatingPercentageValue}%` }}
-        />
+    const averageRatingPercentage = (rating) => {
+      const percentageRating = (rating / 5) * 100;
+      return percentageRating;
+    };
+
+    const averageRatingPercentageValue = averageRatingPercentage(averageRating);
+
+    return (
+      <div className={styles.container}>
+        <div className={styles.ratings}>
+          <div className={styles.emptyStars} />
+          <div
+            className={styles.fullStars}
+            style={{ width: `${averageRatingPercentageValue}%` }}
+          />
+        </div>
+        <div className={styles.ratingSummary}>
+          {averageRating}
+          {' '}
+          (
+          {numberOfReviews}
+          )
+        </div>
       </div>
-      <div className={styles.ratingSummary}>
-        {averageRating}
-        {' '}
-        (
-        {numberOfReviews}
-        )
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 const propTypes = {
