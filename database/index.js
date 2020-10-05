@@ -65,7 +65,7 @@ const Product = mongoose.model('Product', productSchema);
 const seedingData = () => {
   // drop collections before new seeding
   mongoose.connection.collections.products.drop((err) => {
-    console.log('collection dropped', err);
+    console.log('collection dropped');
   });
 
   const seeds = seed.bunchOfSeeds;

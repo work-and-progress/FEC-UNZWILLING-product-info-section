@@ -11,6 +11,37 @@ const changeBooleanToYesOrNo = (boolean) => {
   return 'No';
 };
 
+const fakeReviews = {
+  fakeFiveStarReviews: faker.random.number({
+    min: 0,
+    max: 5,
+  }),
+  fakeFourStarReviews: faker.random.number({
+    min: 0,
+    max: 5,
+  }),
+  fakeThreeStarReviews: faker.random.number({
+    min: 0,
+    max: 5,
+  }),
+  fakeTwoStarReviews: faker.random.number({
+    min: 0,
+    max: 5,
+  }),
+  fakeOneStarReviews: faker.random.number({
+    min: 0,
+    max: 5,
+  }),
+};
+
+const sumValues = (obj) => Object.values(obj).reduce((a, b) => a + b);
+const fakeNumberOfReviews = sumValues(fakeReviews);
+const fakeAverageRating = (((fakeReviews.fakeFiveStarReviews * 5)
++ (fakeReviews.fakeFourStarReviews * 4)
++ (fakeReviews.fakeThreeStarReviews * 3)
++ (fakeReviews.fakeTwoStarReviews * 2)
++ fakeReviews.fakeOneStarReviews) / fakeNumberOfReviews).toFixed(2);
+
 const bunchOfSeeds = [];
 for (let i = 1; i < 101; i += 1) {
   const seeding = {
@@ -28,35 +59,13 @@ for (let i = 1; i < 101; i += 1) {
     }),
     discount: 'Yes',
     review: {
-      numberOfReviews: faker.random.number({
-        min: 1,
-        max: 999,
-      }),
-      fivStarReviews: faker.random.number({
-        min: 0,
-        max: 5,
-      }),
-      fourStarReviews: faker.random.number({
-        min: 0,
-        max: 5,
-      }),
-      threeStarReviews: faker.random.number({
-        min: 0,
-        max: 5,
-      }),
-      twoStarReviews: faker.random.number({
-        min: 0,
-        max: 5,
-      }),
-      oneStarReviews: faker.random.number({
-        min: 0,
-        max: 5,
-      }),
-      averageRating: faker.random.number({
-        min: 0,
-        max: 5,
-        precision: 0.01,
-      }),
+      numberOfReviews: fakeNumberOfReviews,
+      fivStarReviews: fakeReviews.fakeFiveStarReviews,
+      fourStarReviews: fakeReviews.fakeFourStarReviews,
+      threeStarReviews: fakeReviews.fakeThreeStarReviews,
+      twoStarReviews: fakeReviews.fakeTwoStarReviews,
+      oneStarReviews: fakeReviews.fakeOneStarReviews,
+      averageRating: fakeAverageRating,
     }, // Need to change ??
     description: faker.lorem.paragraphs(),
     specificationItemNo: faker.random.number({

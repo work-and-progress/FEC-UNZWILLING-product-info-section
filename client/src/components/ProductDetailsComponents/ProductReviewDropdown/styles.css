@@ -1,0 +1,40 @@
+.ratings {
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  color: #b1b1b1;
+  overflow: hidden;
+}
+
+.percentage {
+  color: #b1b1b1;
+}
+
+.fullBars {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #ffc302;
+}
+
+.star {
+  color: #ffc302;
+}
+.emptyBars:before, .fullBars:before {
+  content:"▄▄▄▄▄";
+  font-size: 14pt;
+}
+
+.emptyBars:before {
+  -webkit-text-stroke: 1px #848484;
+}
+
+.fullBars:before {
+  -webkit-text-stroke: 1px orange;
+}
+
+.ratingContainer {
+  display: block;
+}

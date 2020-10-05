@@ -4,48 +4,80 @@ import PropTypes from 'prop-types';
 import styles from './styles.css';
 import starImage from './star.png';
 import emptyStarImage from './empty_star.png';
+import ProductReviewDropdown from '../ProductReviewDropdown/ProductReviewDropdown';
 
-export default function ProductReviews(props) {
-  const {
-    productInfoDetails: {
-      review: {
-        numberOfReviews,
-        fivStarReviews,
-        fourStarReviews,
-        threeStarReviews,
-        twoStarReviews,
-        oneStarReviews,
-        averageRating,
-      } = {},
-    },
-  } = props;
-  console.log(averageRating);
+export default class ProductReviews extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      displayDropdown: false,
+    };
+    this.displayProductReviewDropdown = this.displayProductReviewDropdown.bind(this);
+  }
 
-  const averageRatingPercentage = (rating) => {
-    const percentageRating = (rating / 5) * 100;
-    return percentageRating;
-  };
+  displayProductReviewDropdown() {
+    const { displayDropdown } = this.state;
+    this.setState({
+      displayDropdown: !(displayDropdown),
+    });
+  }
 
-  const averageRatingPercentageValue = averageRatingPercentage(averageRating);
+  render() {
+    const {
+      productInfoDetails: {
+        review: {
+          numberOfReviews,
+          fivStarReviews,
+          fourStarReviews,
+          threeStarReviews,
+          twoStarReviews,
+          oneStarReviews,
+          averageRating,
+        } = {},
+      },
+      productInfoDetails,
+    } = this.props;
 
-  return (
-    <div className={styles.container}>
-      <div className={styles.ratings}>
-        <div className={styles.emptyStars} />
-        <div
-          className={styles.fullStars}
-          style={{ width: `${averageRatingPercentageValue}%` }}
-        />
+    const { displayDropdown } = this.state;
+
+    // On mouse hover, dropdown shows.
+    let productReviewDropdown = null;
+
+    if (displayDropdown) {
+      productReviewDropdown = (<ProductReviewDropdown productInfoDetails={productInfoDetails} />);
+    }
+
+    const averageRatingPercentage = (rating) => {
+      const percentageRating = (rating / 5) * 100;
+      return percentageRating;
+    };
+
+    const averageRatingPercentageValue = averageRatingPercentage(averageRating);
+
+    return (
+      <div
+        className={styles.container}
+        onMouseEnter={this.displayProductReviewDropdown}
+        onMouseLeave={this.displayProductReviewDropdown}
+      >
+        <div className={styles.ratings}>
+          <div className={styles.emptyStars} />
+          <div
+            className={styles.fullStars}
+            style={{ width: `${averageRatingPercentageValue}%` }}
+          />
+        </div>
+        <div className={styles.ratingSummary}>
+          {averageRating}
+          {' '}
+          (
+          {numberOfReviews}
+          )
+        </div>
+        {productReviewDropdown}
       </div>
-      <div className={styles.ratingSummary}>
-        {averageRating}
-        {' '}
-        (
-        {numberOfReviews}
-        )
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 const propTypes = {
