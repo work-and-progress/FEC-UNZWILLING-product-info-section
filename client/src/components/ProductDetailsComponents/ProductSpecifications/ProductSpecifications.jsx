@@ -48,11 +48,44 @@ export default class ProductSpecifications extends React.Component {
       },
     } = this.props;
 
+    const { isOpened } = this.state;
+
+    let closeAndOpenButton = (
+      <div className={styles.specificationsContainer}>
+        <div className={styles.specificationTitle}>
+          <h1>Specifications</h1>
+        </div>
+        <p
+          className={styles.openAndCloseButton}
+          onClick={this.handleChange}
+        >
+          {' '}
+          -
+        </p>
+      </div>
+    );
+
+    if (!isOpened) {
+      closeAndOpenButton = (
+        <div className={styles.specificationsContainer}>
+          <div className={styles.specificationTitle}>
+            <h1>Specifications</h1>
+          </div>
+          <p
+            className={styles.openAndCloseButton}
+            onClick={this.handleChange}
+          >
+            {' '}
+            +
+          </p>
+        </div>
+      );
+    }
+
     return (
       <div className={styles.container}>
-        <h1>Specifications</h1>
-        <button onClick={this.handleChange}> TEST BUTTON </button>
-        {this.state.isOpened ? (
+        {closeAndOpenButton}
+        {isOpened ? (
           <div>
             <h3 className={styles.title}>SPECIFICATIONS</h3>
             <ul>
