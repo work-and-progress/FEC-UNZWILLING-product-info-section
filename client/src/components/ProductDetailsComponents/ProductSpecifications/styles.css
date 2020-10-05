@@ -9,7 +9,9 @@ ul {
   text-transform: none;
   line-height: 22px;
   display: block;
+  border-bottom: 1px solid #dcdcdc;
   -webkit-tap-highlight-color: transparent;
+  margin-bottom: 30px;
 }
 
 .attribute {

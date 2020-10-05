@@ -36,21 +36,21 @@ export default function ProductReviewDropDown(props) {
 
   const ratingBars = reviewRatingSummaryInPercentage.map((reviewPercentage, i) => (
     <div key={i} className={styles.ratingContainer}>
+      <span className={styles.rating}>{5 - i}</span>
+      <span className={styles.star}>★</span>
       <div className={styles.ratings}>
         <div className={styles.emptyBars} />
-        <span className={styles.rating}>{5 - i}</span>
-        <span className={styles.star}>★</span>
         <div
           className={styles.fullBars}
           style={{ width: `${reviewPercentage}%` }}
         />
-        <span className={styles.percentage}>{`${reviewRatingSummary[i]}`}</span>
       </div>
+      <span className={styles.percentage}>{`${reviewRatingSummary[i]}`}</span>
     </div>
   ));
 
   return (
-    <div>
+    <div className={styles.container}>
       {ratingBars}
     </div>
   );

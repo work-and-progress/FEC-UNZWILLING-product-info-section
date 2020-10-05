@@ -15,9 +15,7 @@ export default class ProductSpecifications extends React.Component {
   handleChange() {
     this.setState((previousState) => ({
       isOpened: !(previousState.isOpened),
-    }), () => {
-      console.log(this.state.isOpened);
-    });
+    }));
   }
 
   render() {
