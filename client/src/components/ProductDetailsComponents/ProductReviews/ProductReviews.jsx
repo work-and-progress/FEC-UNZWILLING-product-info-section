@@ -19,6 +19,7 @@ export default function ProductReviews(props) {
       } = {},
     },
   } = props;
+  console.log(averageRating);
 
   const averageRatingPercentage = (rating) => {
     const percentageRating = (rating / 5) * 100;
@@ -28,17 +29,20 @@ export default function ProductReviews(props) {
   const averageRatingPercentageValue = averageRatingPercentage(averageRating);
 
   return (
-    <div>
-      <h1>ProductReviews</h1>
-      <div>
-        <h2>Star Rating</h2>
-      </div>
+    <div className={styles.container}>
       <div className={styles.ratings}>
         <div className={styles.emptyStars} />
         <div
           className={styles.fullStars}
-          style={{ width: `${averageRatingPercentageValue}` }}
+          style={{ width: `${averageRatingPercentageValue}%` }}
         />
+      </div>
+      <div className={styles.ratingSummary}>
+        {averageRating}
+        {' '}
+        (
+        {numberOfReviews}
+        )
       </div>
     </div>
   );

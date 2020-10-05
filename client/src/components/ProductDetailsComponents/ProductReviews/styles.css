@@ -1,3 +1,6 @@
+.container {
+  display: inline-block;
+}
 .ratings {
   position: relative;
   vertical-align: middle;
@@ -23,15 +26,16 @@
 .fullStars:before {
   -webkit-text-stroke: 1px orange;
 }
-/* Webkit-text-stroke is not supported on firefox or IE */
 
-/* Firefox */
-/* @-moz-document url-prefix() {
-  .full-stars {
-      color: #ECBE24;
-  }
+.ratingSummary {
+  margin-left: 20px;
+  display: inline-block;
+  white-space: nowrap!important;
+  color: #27221D!important;
+  font-size: 11px!important;
+  font-family: "futura book"!important;
+  text-transform: none!important;
+  font-weight: normal!important;
+  font-style: normal!important;
+  text-decoration: none!important;
 }
-/* IE */
-/* <!--[if IE]> .full-stars {
-  color: #ECBE24;
-} */
