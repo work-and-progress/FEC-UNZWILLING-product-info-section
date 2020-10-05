@@ -8,7 +8,7 @@
   justify-content: center;
   overflow-x: scroll;
   scroll-behavior: smooth;
-  width: 60rem;
+  width: 40rem;
 }
 
 .carouselComponent::-webkit-scrollbar {
@@ -16,8 +16,8 @@
 }
 
 .carouselComponent img {
-  height: 200px;
-  width: 200px;
+  height: 104px;
+  width: 117px;
 }
 
 .carouselComponentWrapper {

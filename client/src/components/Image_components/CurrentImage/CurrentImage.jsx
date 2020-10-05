@@ -16,7 +16,6 @@ export default class MainImage extends React.Component {
 
     return (
       <div className={styles.wrapper}>
-        <h1>RENDER currentImage</h1>
         <img
           src={currentImage}
           alt="Main"

@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // Product prices should be refactored.
+import styles from './styles.css';
 
 export default function ProductPrice(props) {
   const { productInfoDetails } = props;
 
-  const roundUpPrice = Math.ceil((productInfoDetails.price) / 10) * 10;
+  const roundUpPrice = (Math.ceil((productInfoDetails.price) / 10) * 10).toFixed(2);
   const roundUpDiscount = Math.ceil((productInfoDetails.discountPercentage) / 10) * 10;
 
   const discountedPrice = (price, discountPercentage, discount) => {
@@ -35,23 +36,16 @@ export default function ProductPrice(props) {
   );
 
   return (
-    <div>
-      <h1>Product Price</h1>
+    <div className={styles.container}>
       <div>
-        <p>
-          IN STOCK | SHIPS WITHIN 1-2 DAYS
-        </p>
         <p>
           {discountDescriptionElement}
         </p>
-        <p>
-          {`$${roundUpPrice}`}
+        <p className={styles.roundUpPrice}>
+          {`${roundUpPrice}`}
         </p>
         <p>
           {discountedPriceElement}
-        </p>
-        <p>
-          WRITE A REVIEW
         </p>
       </div>
     </div>

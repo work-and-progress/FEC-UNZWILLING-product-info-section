@@ -77,11 +77,9 @@ export default class ProductImages extends React.Component {
 
     return (
       <div className={styles.container}>
-        <h1>RENDER ProductImages</h1>
         <div className={styles.mainImage}>
           <CurrentImage currentImage={currentImage} />
         </div>
-        <h1>Carousel</h1>
         <div className={styles.carouselComponentWrapper}>
           <button>
             <svg width="18px" height="18px" viewBox="0 0 18 28" aria-hidden="true" style={{ transform: 'rotate(180deg)' }}><path d="M1.825 28L18 14 1.825 0 0 1.715 14.196 14 0 26.285z" fill="currentColor" /></svg>

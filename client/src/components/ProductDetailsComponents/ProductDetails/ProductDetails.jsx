@@ -22,13 +22,19 @@ export default class ProductDetails extends React.Component {
     const { productInfoDetails, updateBasket } = this.props;
     // console.log('PRODUCT DETAILS : ', productInfoDetails);
     return (
-      <div className={styles.temp}>
+      <div className={styles.container}>
         <div>
-          <h1>ProductDetails</h1>
           <ProductTitleAndLogo productInfoDetails={productInfoDetails} />
-          <AddToBasket updateBasket={updateBasket} />
+          <div className={styles.basketAndPrice}>
+            <AddToBasket updateBasket={updateBasket} />
+            <ProductPrice productInfoDetails={productInfoDetails} />
+          </div>
+          <div className={styles.shippingInfo}>
+            <p>
+              IN STOCK | SHIPS WITHIN 1-2 DAYS
+            </p>
+          </div>
           <ProductReviews productInfoDetails={productInfoDetails} />
-          <ProductPrice productInfoDetails={productInfoDetails} />
           <SocialSharingButtons />
           <ProductDescription productInfoDetails={productInfoDetails} />
           <ProductSpecifications productInfoDetails={productInfoDetails} />
