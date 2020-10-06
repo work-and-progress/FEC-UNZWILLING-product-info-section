@@ -11,7 +11,8 @@
     "test": "jest --config ./jest.config.json",
     "test:watch": "npm run test -- --watch",
     "test:coverage": "npx jest --coverage",
-    "clear_jest": "jest --clearCache"
+    "clear_jest": "jest --clearCache",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",

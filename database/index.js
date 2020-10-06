@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 const seed = require('./seed.js');
 
-mongoose.connect('mongodb://localhost/UNZWILLING', {
+mongoose.connect('mongodb://localhost/unZwilling-productInfo', {
   useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false,
 });
 
