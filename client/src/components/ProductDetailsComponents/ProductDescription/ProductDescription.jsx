@@ -71,7 +71,7 @@ export default class ProductDescription extends React.Component {
             <div ref={this.textRef} className={styles.text}>
               {productInfoDetails.description}
             </div>
-            <button type="button" onClick={this.handleClick}>show more</button>
+            <button type="button" className={styles.showMoreButton} onClick={this.handleClick}>...show more</button>
           </div>
         ) : null}
       </div>
