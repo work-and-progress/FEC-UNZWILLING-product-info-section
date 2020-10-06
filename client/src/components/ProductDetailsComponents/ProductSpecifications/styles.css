@@ -9,7 +9,10 @@ ul {
   text-transform: none;
   line-height: 22px;
   display: block;
+  border-bottom: 1px solid #dcdcdc;
   -webkit-tap-highlight-color: transparent;
+  margin-bottom: 30px;
+  position:relative;
 }
 
 .attribute {
@@ -75,4 +78,27 @@ ul {
 
 .text {
   text-overflow: ellipsis;
+}
+
+.openAndCloseButton {
+  text-align: right;
+  cursor: pointer;
+  left: 0;
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 15px;
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  text-align: right;
+  top: 1rem;
+}
+
+
+.specificationTitleContainer {
+  display: inline-block;
+}
+
+.specificationTitle {
+  display: inline-block;
 }

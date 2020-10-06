@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
-import ShowMoreText from 'react-show-more-text';
 import PropTypes from 'prop-types';
 
 import styles from './styles.css';
@@ -8,34 +9,71 @@ export default class ProductDescription extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // isOpened: false,
+      isOpened: false,
     };
+    this.textRef = React.createRef();
+    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  // handleChange() {
-  //   this.setState((previousState) => ({
-  //     isOpened: !(previousState.isOpened),
-  //   }));
-  // }
+  handleClick(e) {
+    this.textRef.current.className = (`${styles.expandText} ${styles.text}`);
+    e.target.className = styles.hideButton;
+  }
+
+  handleChange() {
+    this.setState((previousState) => ({
+      isOpened: !(previousState.isOpened),
+    }));
+  }
 
   render() {
     const { productInfoDetails } = this.props;
+    const { isOpened } = this.state;
+
+    let closeAndOpenButton = (
+      <div className={styles.descriptionContainer}>
+        <div className={styles.descriptionTitle.container}>
+          <h1 className={styles.descriptionTitle}>Description</h1>
+          <p
+            className={styles.openAndCloseButton}
+            onClick={this.handleChange}
+          >
+            {' '}
+            –
+          </p>
+        </div>
+      </div>
+    );
+
+    if (!isOpened) {
+      closeAndOpenButton = (
+        <div className={styles.descriptionContainer}>
+          <div className={styles.descriptionTitle.container}>
+            <h1 className={styles.descriptionTitle}>Description</h1>
+            <p
+              className={styles.openAndCloseButton}
+              onClick={this.handleChange}
+            >
+              {' '}
+              +
+            </p>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className={styles.container}>
-        <h1>Description</h1>
-        <div className={styles.text}>
-          <ShowMoreText
-            lines={3}
-            more="load more"
-            less="load less"
-            anchorClass=""
-            onClick={this.executeOnClick}
-            expanded={false}
-            width={600}
-          >
-            {productInfoDetails.description}
-          </ShowMoreText>
-        </div>
+        {closeAndOpenButton}
+        {isOpened ? (
+          <div>
+            <div ref={this.textRef} className={styles.text}>
+              {productInfoDetails.description}
+            </div>
+            <button type="button" className={styles.showMoreButton} onClick={this.handleClick}>...show more</button>
+          </div>
+        ) : null}
       </div>
     );
   }

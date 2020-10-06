@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -15,9 +17,7 @@ export default class ProductSpecifications extends React.Component {
   handleChange() {
     this.setState((previousState) => ({
       isOpened: !(previousState.isOpened),
-    }), () => {
-      console.log(this.state.isOpened);
-    });
+    }));
   }
 
   render() {
@@ -50,11 +50,44 @@ export default class ProductSpecifications extends React.Component {
       },
     } = this.props;
 
+    const { isOpened } = this.state;
+
+    let closeAndOpenButton = (
+      <div className={styles.specificationsContainer}>
+        <div className={styles.specificationTitle.container}>
+          <h1 className={styles.specificationTitle}>Specifications</h1>
+          <p
+            className={styles.openAndCloseButton}
+            onClick={this.handleChange}
+          >
+            {' '}
+            –
+          </p>
+        </div>
+      </div>
+    );
+
+    if (!isOpened) {
+      closeAndOpenButton = (
+        <div className={styles.specificationsContainer}>
+          <div className={styles.specificationTitle.container}>
+            <h1 className={styles.specificationTitle}>Specifications</h1>
+            <p
+              className={styles.openAndCloseButton}
+              onClick={this.handleChange}
+            >
+              {' '}
+              +
+            </p>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className={styles.container}>
-        <h1>Specifications</h1>
-        <button onClick={this.handleChange}> TEST BUTTON </button>
-        {this.state.isOpened ? (
+        {closeAndOpenButton}
+        {isOpened ? (
           <div>
             <h3 className={styles.title}>SPECIFICATIONS</h3>
             <ul>

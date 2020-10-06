@@ -1,13 +1,19 @@
+.container {
+  position: absolute;
+  width: 167.5px;
+  left: 50.7%;
+  background-color: white;
+  border: thin black solid;
+  padding: 10px 5px;
+  z-index: 1;
+}
+
 .ratings {
   position: relative;
   vertical-align: middle;
   display: inline-block;
   color: #b1b1b1;
   overflow: hidden;
-}
-
-.percentage {
-  color: #b1b1b1;
 }
 
 .fullBars {
@@ -19,9 +25,21 @@
   color: #ffc302;
 }
 
+.percentage {
+  color: #b1b1b1;
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.rating{
+  font-size: 12px;
+  margin-left: 10px;
+}
 .star {
   color: #ffc302;
+  margin-right: 10px;
 }
+
 .emptyBars:before, .fullBars:before {
   content:"▄▄▄▄▄";
   font-size: 14pt;
