@@ -1,11 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-} from 'react-router-dom';
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link,
+// } from 'react-router-dom';
 
 // import TopNavBar from './components/top_bar_components/TopNavBar/TopNavBar';
 import styles from './styles.css';
@@ -19,6 +19,7 @@ export default class App extends React.Component {
       productInfoDetails: {},
       numberOfItemsInBasket: 0,
       cardList: [],
+      // productId: 1,
     };
     this.getOneProductDetails = this.getOneProductDetails.bind(this);
     this.updateBasket = this.updateBasket.bind(this);
@@ -29,7 +30,7 @@ export default class App extends React.Component {
   }
 
   getOneProductDetails(id) {
-    axios.get(`http://localhost:8080/products/${id}`)
+    axios.get(`http://localhost:3002/products/${id}`)
       .then((response) => {
         this.setState(() => ({
           productInfoDetails: response.data,
@@ -44,9 +45,7 @@ export default class App extends React.Component {
   updateBasket(numberOfItemsAdded) {
     this.setState((previousState) => ({
       numberOfItemsInBasket: previousState.numberOfItemsInBasket + numberOfItemsAdded,
-    }), () => {
-      console.log(this.state.numberOfItemsInBasket);
-    });
+    }));
   }
 
   render() {

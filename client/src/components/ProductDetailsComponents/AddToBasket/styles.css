@@ -11,7 +11,7 @@
   width: 130%;
 }
 
- select {
+.selectContainer > select {
   border: 1px solid #bbb;
   width: 50px;
   height: 40px;
@@ -23,7 +23,7 @@
   display: inline-block;
 }
 
-button {
+.selectContainer > button {
   background: #ed1923;
   opacity: 1;
   margin-right: .5%;
