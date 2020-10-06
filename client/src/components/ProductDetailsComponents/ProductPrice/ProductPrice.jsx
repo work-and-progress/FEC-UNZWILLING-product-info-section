@@ -44,7 +44,7 @@ export default function ProductPrice(props) {
         <p className={styles.roundUpPrice}>
           {`${roundUpPrice}`}
         </p>
-        <p>
+        <p className={styles.discountedPrice}>
           {discountedPriceElement}
         </p>
       </div>

@@ -12,6 +12,7 @@ ul {
   border-bottom: 1px solid #dcdcdc;
   -webkit-tap-highlight-color: transparent;
   margin-bottom: 30px;
+  position:relative;
 }
 
 .attribute {
@@ -86,8 +87,18 @@ ul {
   font-weight: bold;
   font-size: 30px;
   margin-bottom: 15px;
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  text-align: right;
+  top: 1rem;
 }
 
-.specificationsContainer {
-  display: inline;
+
+.specificationTitleContainer {
+  display: inline-block;
+}
+
+.specificationTitle {
+  display: inline-block;
 }

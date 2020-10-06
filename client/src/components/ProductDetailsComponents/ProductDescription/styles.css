@@ -1,8 +1,49 @@
 .container {
   border-top: 1px solid #dcdcdc;
   border-bottom: 1px solid #dcdcdc;
+  position: relative;
 }
 
 .text {
-  margin-bottom: 30px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  width: 98%;
+}
+
+
+.expandText {
+  display: inline-block;
+  overflow: visible;
+  width: 98%;
+}
+
+.hideButton {
+  display: none;
+}
+
+.openAndCloseButton {
+  text-align: right;
+  cursor: pointer;
+  left: 0;
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 15px;
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  text-align: right;
+  top: 1rem;
+}
+
+
+.descriptionTitleContainer {
+  display: inline-block;
+}
+
+.descriptionTitle {
+  display: inline-block;
+  width: 1350px;
+  font-size: 30px;
 }

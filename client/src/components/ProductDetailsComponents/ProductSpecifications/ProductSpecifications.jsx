@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -52,32 +54,32 @@ export default class ProductSpecifications extends React.Component {
 
     let closeAndOpenButton = (
       <div className={styles.specificationsContainer}>
-        <div className={styles.specificationTitle}>
-          <h1>Specifications</h1>
+        <div className={styles.specificationTitle.container}>
+          <h1 className={styles.specificationTitle}>Specifications</h1>
+          <p
+            className={styles.openAndCloseButton}
+            onClick={this.handleChange}
+          >
+            {' '}
+            –
+          </p>
         </div>
-        <p
-          className={styles.openAndCloseButton}
-          onClick={this.handleChange}
-        >
-          {' '}
-          -
-        </p>
       </div>
     );
 
     if (!isOpened) {
       closeAndOpenButton = (
         <div className={styles.specificationsContainer}>
-          <div className={styles.specificationTitle}>
-            <h1>Specifications</h1>
+          <div className={styles.specificationTitle.container}>
+            <h1 className={styles.specificationTitle}>Specifications</h1>
+            <p
+              className={styles.openAndCloseButton}
+              onClick={this.handleChange}
+            >
+              {' '}
+              +
+            </p>
           </div>
-          <p
-            className={styles.openAndCloseButton}
-            onClick={this.handleChange}
-          >
-            {' '}
-            +
-          </p>
         </div>
       );
     }

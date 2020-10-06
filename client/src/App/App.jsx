@@ -1,8 +1,14 @@
 import React from 'react';
 import axios from 'axios';
-import styles from './styles.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from 'react-router-dom';
 
 // import TopNavBar from './components/top_bar_components/TopNavBar/TopNavBar';
+import styles from './styles.css';
 import ProductDetails from '../components/ProductDetailsComponents/ProductDetails/ProductDetails';
 import ProductImages from '../components/image_components/ProductImages/ProductImages';
 
