@@ -4,11 +4,11 @@
 
 .carouselComponent {
   display:flex;
-  justify-content: center;
   overflow-x: scroll;
   scroll-behavior: smooth;
   width: 40rem;
 }
+
 
 .carouselComponent::-webkit-scrollbar {
   display: none;

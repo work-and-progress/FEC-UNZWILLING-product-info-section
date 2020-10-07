@@ -49,6 +49,7 @@ export default class ProductImages extends React.Component {
     }
     this.setState({
       bottomBoarder: newState,
+      currentIndex: id,
     });
   }
 
