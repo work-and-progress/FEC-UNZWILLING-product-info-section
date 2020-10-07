@@ -1,6 +1,5 @@
-.mainImage img {
-  height: 500px;
-  width: 500px;
+.container {
+  position:relative
 }
 
 .carouselComponent {
@@ -22,9 +21,14 @@
 
 .carouselComponentWrapper {
   display: flex;
+  position: absolute;
+  width: 91%;
 }
 
 .carouselComponentWrapper button {
   border: none;
   background-color: transparent;
+  width: 50px;
+  height: 50px;
+  margin: auto;
 }

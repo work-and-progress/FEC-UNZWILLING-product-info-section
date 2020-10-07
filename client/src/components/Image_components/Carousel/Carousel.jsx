@@ -22,7 +22,7 @@ export default class Carousel extends React.Component {
     const { card } = this.props;
     return (
       <div>
-        <div>
+        <div className={styles.card}>
           <img
             src={card}
             alt="card"
