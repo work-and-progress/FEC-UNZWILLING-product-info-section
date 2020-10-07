@@ -49,6 +49,7 @@ export default class ProductImages extends React.Component {
     }
     this.setState({
       bottomBoarder: newState,
+      currentIndex: id,
     });
   }
 
@@ -61,6 +62,7 @@ export default class ProductImages extends React.Component {
     const {
       currentImage,
       currentIndex,
+      bottomBoarder,
     } = this.state;
 
     const CarouselComponent = cardList.map((card, i) => (
@@ -72,12 +74,13 @@ export default class ProductImages extends React.Component {
         updateCurrentImage={this.updateCurrentImage}
         cardList={cardList}
         updateBottomBoarder={this.updateBottomBoarder}
+        bottomBoarder={bottomBoarder}
       />
     ));
 
     return (
       <div className={styles.container}>
-        <div className={styles.mainImage}>
+        <div className={styles.currentImageAndCarouselContainer}>
           <CurrentImage currentImage={currentImage} />
         </div>
         <div className={styles.carouselComponentWrapper}>
