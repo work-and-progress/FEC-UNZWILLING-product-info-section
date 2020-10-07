@@ -30,7 +30,7 @@ export default class App extends React.Component {
   }
 
   getOneProductDetails(id) {
-    axios.get(`http://localhost:3002/products/${id}`)
+    axios.get(`http://localhost:3002/productInfo/${id}`)
       .then((response) => {
         this.setState(() => ({
           productInfoDetails: response.data,
