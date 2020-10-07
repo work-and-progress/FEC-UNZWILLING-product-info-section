@@ -11,39 +11,69 @@ const changeBooleanToYesOrNo = (boolean) => {
   return 'No';
 };
 
-const fakeReviews = {
-  fakeFiveStarReviews: faker.random.number({
-    min: 0,
-    max: 5,
-  }),
-  fakeFourStarReviews: faker.random.number({
-    min: 0,
-    max: 5,
-  }),
-  fakeThreeStarReviews: faker.random.number({
-    min: 0,
-    max: 5,
-  }),
-  fakeTwoStarReviews: faker.random.number({
-    min: 0,
-    max: 5,
-  }),
-  fakeOneStarReviews: faker.random.number({
-    min: 0,
-    max: 5,
-  }),
-};
+// const fakeReviews = {
+//   fakeFiveStarReviews: faker.random.number({
+//     min: 0,
+//     max: 5,
+//   }),
+//   fakeFourStarReviews: faker.random.number({
+//     min: 0,
+//     max: 5,
+//   }),
+//   fakeThreeStarReviews: faker.random.number({
+//     min: 0,
+//     max: 5,
+//   }),
+//   fakeTwoStarReviews: faker.random.number({
+//     min: 0,
+//     max: 5,
+//   }),
+//   fakeOneStarReviews: faker.random.number({
+//     min: 0,
+//     max: 5,
+//   }),
+// };
 
-const sumValues = (obj) => Object.values(obj).reduce((a, b) => a + b);
-const fakeNumberOfReviews = sumValues(fakeReviews);
-const fakeAverageRating = (((fakeReviews.fakeFiveStarReviews * 5)
-+ (fakeReviews.fakeFourStarReviews * 4)
-+ (fakeReviews.fakeThreeStarReviews * 3)
-+ (fakeReviews.fakeTwoStarReviews * 2)
-+ fakeReviews.fakeOneStarReviews) / fakeNumberOfReviews).toFixed(2);
+// const sumValues = (obj) => Object.values(obj).reduce((a, b) => a + b);
+// const fakeNumberOfReviews = sumValues(fakeReviews);
+// const fakeAverageRating = (((fakeReviews.fakeFiveStarReviews * 5)
+// + (fakeReviews.fakeFourStarReviews * 4)
+// + (fakeReviews.fakeThreeStarReviews * 3)
+// + (fakeReviews.fakeTwoStarReviews * 2)
+// + fakeReviews.fakeOneStarReviews) / fakeNumberOfReviews).toFixed(2);
 
 const bunchOfSeeds = [];
 for (let i = 1; i < 101; i += 1) {
+  const fakeReviews = {
+    fakeFiveStarReviews: faker.random.number({
+      min: 0,
+      max: 5,
+    }),
+    fakeFourStarReviews: faker.random.number({
+      min: 0,
+      max: 5,
+    }),
+    fakeThreeStarReviews: faker.random.number({
+      min: 0,
+      max: 5,
+    }),
+    fakeTwoStarReviews: faker.random.number({
+      min: 0,
+      max: 5,
+    }),
+    fakeOneStarReviews: faker.random.number({
+      min: 0,
+      max: 5,
+    }),
+  };
+
+  const sumValues = (obj) => Object.values(obj).reduce((a, b) => a + b);
+  const fakeNumberOfReviews = sumValues(fakeReviews);
+  const fakeAverageRating = (((fakeReviews.fakeFiveStarReviews * 5)
+  + (fakeReviews.fakeFourStarReviews * 4)
+  + (fakeReviews.fakeThreeStarReviews * 3)
+  + (fakeReviews.fakeTwoStarReviews * 2)
+  + fakeReviews.fakeOneStarReviews) / fakeNumberOfReviews).toFixed(2);
   const seeding = {
     id: i,
     category: faker.lorem.words(),

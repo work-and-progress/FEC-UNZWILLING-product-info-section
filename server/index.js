@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/products/:id', (req, res) => {
+app.get('/products/productInfo/:id', (req, res) => {
   // WONDER WHEN THIS END POINT WILL BE DECIDED???
   const { id } = req.params;
   // REFACTOR testID, THIS IS ONLY TESTING PURPOSE
