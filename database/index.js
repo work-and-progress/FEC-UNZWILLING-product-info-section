@@ -72,11 +72,11 @@ const seedingData = () => {
 
   Product.insertMany(seeds)
     .then(() => {
-      console.log('Data inserted');// Success
+      console.log('Data inserted');
       db.close();
     })
     .catch((error) => {
-      console.log(error);// Failure
+      console.log(error);
       db.close();
     });
 };

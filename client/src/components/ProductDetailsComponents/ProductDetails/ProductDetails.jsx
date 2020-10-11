@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/no-unresolved
-import styles from './styles.css';
 
+import styles from './styles.css';
 import ProductTitleAndLogo from '../ProductTitleAndLogo/ProductTitleAndLogo';
 import AddToBasket from '../AddToBasket/AddToBasket';
 import ProductReviews from '../ProductReviews/ProductReviews';
@@ -20,7 +20,6 @@ export default class ProductDetails extends React.Component {
 
   render() {
     const { productInfoDetails, updateBasket } = this.props;
-    // console.log('PRODUCT DETAILS : ', productInfoDetails);
     return (
       <div className={styles.container}>
         <div>

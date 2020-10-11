@@ -27,6 +27,8 @@ export default class ProductImages extends React.Component {
     };
     this.updateCurrentImage = this.updateCurrentImage.bind(this);
     this.updateBottomBoarder = this.updateBottomBoarder.bind(this);
+    this.handlePrevClick = this.handlePrevClick.bind(this);
+    this.handleNextClick = this.handleNextClick.bind(this);
   }
 
   updateCurrentImage(updateImage) {
@@ -50,6 +52,41 @@ export default class ProductImages extends React.Component {
     this.setState({
       bottomBoarder: newState,
       currentIndex: id,
+    });
+  }
+
+  handlePrevClick() {
+    const { currentIndex } = this.state;
+    const { cardList } = this.props;
+    let index = currentIndex;
+
+    if (index < 4) {
+      index = cardList.length - 1;
+      document.getElementById('carouselComponent').scrollBy(1260, 0);
+    } else {
+      index -= 1;
+      document.getElementById('carouselComponent').scrollBy(-126, 0);
+    }
+    this.setState({
+      currentIndex: index,
+    });
+  }
+
+  handleNextClick() {
+    const { currentIndex } = this.state;
+    const { cardList } = this.props;
+    let index = currentIndex;
+
+    if (index === cardList.length - 4) {
+      index = 0;
+      document.getElementById('carouselComponent').scrollBy(-1260, 0);
+    } else {
+      index += 1;
+      document.getElementById('carouselComponent').scrollBy(126, 0);
+    }
+
+    this.setState({
+      currentIndex: index,
     });
   }
 
@@ -82,36 +119,19 @@ export default class ProductImages extends React.Component {
       </div>
     ));
 
-    // <div id="galleryItemList" className={styles.galleryItemList}>
-    //   {galleryImages.map((image) => (
-    //     <div
-    //       key={image._id}
-    //       className={currentBorder[image._id - 1] ? styles.border : styles.no_border}
-    //     >
-    //       <GalleryItem
-    //         image={image}
-    //         updateCurrentImage={updateCurrentImage}
-    //         currentIndex={currentIndex}
-    //         currentBorder={currentBorder}
-    //         updateCurrentBorder={updateCurrentBorder}
-    //       />
-    //     </div>
-    //   ))}
-    // </div>
-
     return (
       <div className={styles.container}>
         <div className={styles.currentImageAndCarouselContainer}>
           <CurrentImage currentImage={currentImage} />
         </div>
         <div className={styles.carouselComponentWrapper}>
-          <button>
+          <button onClick={this.handlePrevClick} className={styles.carouselBtn}>
             <svg width="18px" height="18px" viewBox="0 0 18 28" aria-hidden="true" style={{ transform: 'rotate(180deg)' }}><path d="M1.825 28L18 14 1.825 0 0 1.715 14.196 14 0 26.285z" fill="currentColor" /></svg>
           </button>
-          <div className={styles.carouselComponent}>
+          <div id="carouselComponent" className={styles.carouselComponent}>
             {CarouselComponent}
           </div>
-          <button>
+          <button onClick={this.handleNextClick} className={styles.carouselBtn}>
             <svg width="18px" height="18px" viewBox="0 0 18 28" aria-hidden="true"><path d="M1.825 28L18 14 1.825 0 0 1.715 14.196 14 0 26.285z" fill="currentColor" /></svg>
           </button>
         </div>

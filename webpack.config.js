@@ -44,7 +44,6 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, '/client/dist'),
     port: 8080,
-    // Send API requests on localhost to API server get around CORS.
     proxy: {
       '/': {
         target: 'http://localhost:3002/',

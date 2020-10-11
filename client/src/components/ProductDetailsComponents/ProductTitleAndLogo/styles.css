@@ -32,7 +32,8 @@
 }
 
 .name {
-  font-family: futura bold;
+  font-family: futura book;
+  font-weight: bold;
   margin-bottom: 0;
 }
 .newContainer{

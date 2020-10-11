@@ -46,6 +46,13 @@
 .noBorder {
   height: 104px;
   width: 117px;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-bottom: 2px solid lightgray;
   margin: 0 .2rem;
-  border: 2px solid transparent;
+}
+
+.carouselBtn {
+  outline-style: none;
 }

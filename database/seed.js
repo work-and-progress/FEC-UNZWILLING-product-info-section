@@ -1,9 +1,5 @@
 const faker = require('faker');
 
-// generating random images
-// this is an example.
-// Do not use the variable so it can generate random ten images for each random product.
-// const randomImages = new Array(10).fill(null).map(e => e = faker.fake("{{image.image}}"))
 const changeBooleanToYesOrNo = (boolean) => {
   if (boolean === true) {
     return 'Yes';
@@ -11,46 +7,15 @@ const changeBooleanToYesOrNo = (boolean) => {
   return 'No';
 };
 
-// const fakeReviews = {
-//   fakeFiveStarReviews: faker.random.number({
-//     min: 0,
-//     max: 5,
-//   }),
-//   fakeFourStarReviews: faker.random.number({
-//     min: 0,
-//     max: 5,
-//   }),
-//   fakeThreeStarReviews: faker.random.number({
-//     min: 0,
-//     max: 5,
-//   }),
-//   fakeTwoStarReviews: faker.random.number({
-//     min: 0,
-//     max: 5,
-//   }),
-//   fakeOneStarReviews: faker.random.number({
-//     min: 0,
-//     max: 5,
-//   }),
-// };
-
-// const sumValues = (obj) => Object.values(obj).reduce((a, b) => a + b);
-// const fakeNumberOfReviews = sumValues(fakeReviews);
-// const fakeAverageRating = (((fakeReviews.fakeFiveStarReviews * 5)
-// + (fakeReviews.fakeFourStarReviews * 4)
-// + (fakeReviews.fakeThreeStarReviews * 3)
-// + (fakeReviews.fakeTwoStarReviews * 2)
-// + fakeReviews.fakeOneStarReviews) / fakeNumberOfReviews).toFixed(2);
-
 const bunchOfSeeds = [];
 for (let i = 1; i < 101; i += 1) {
   const fakeReviews = {
     fakeFiveStarReviews: faker.random.number({
-      min: 0,
+      min: 3,
       max: 5,
     }),
     fakeFourStarReviews: faker.random.number({
-      min: 0,
+      min: 3,
       max: 5,
     }),
     fakeThreeStarReviews: faker.random.number({
@@ -74,6 +39,7 @@ for (let i = 1; i < 101; i += 1) {
   + (fakeReviews.fakeThreeStarReviews * 3)
   + (fakeReviews.fakeTwoStarReviews * 2)
   + fakeReviews.fakeOneStarReviews) / fakeNumberOfReviews).toFixed(2);
+
   const seeding = {
     id: i,
     category: faker.lorem.words(),
@@ -82,7 +48,7 @@ for (let i = 1; i < 101; i += 1) {
       min: 100,
       max: 300,
       precision: 0.01,
-    }), // Need to find out $ format
+    }),
     discountPercentage: faker.random.number({
       min: 10,
       max: 50,
@@ -96,7 +62,7 @@ for (let i = 1; i < 101; i += 1) {
       twoStarReviews: fakeReviews.fakeTwoStarReviews,
       oneStarReviews: fakeReviews.fakeOneStarReviews,
       averageRating: fakeAverageRating,
-    }, // Need to change ??
+    },
     description: faker.lorem.paragraphs(),
     specificationItemNo: faker.random.number({
       min: 1,
@@ -167,6 +133,10 @@ for (let i = 1; i < 101; i += 1) {
 }
 
 // Product No. 1 always has real images
+bunchOfSeeds[0].name = 'POWER BLENDER';
+bunchOfSeeds[0].category = 'UNZWILLING ENFINIGY';
+bunchOfSeeds[0].price = '400';
+bunchOfSeeds[0].discountPercentage = '25';
 bunchOfSeeds[0].images = [];
 bunchOfSeeds[0].images = [
   'https://unzwillingimg.s3-us-west-1.amazonaws.com/images/main.jpg',
