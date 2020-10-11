@@ -32,8 +32,7 @@ export default class Carousel extends React.Component {
     // console.log ((currentIndex === 0));
 
     return (
-      <div>
-        <div>
+        <div className={styles.card}>
           <img
             // className={ styles.card }
             src={card}
@@ -41,7 +40,6 @@ export default class Carousel extends React.Component {
             onClick={this.clickHandler}
           />
         </div>
-      </div>
     );
   }
 }

@@ -66,17 +66,38 @@ export default class ProductImages extends React.Component {
     } = this.state;
 
     const CarouselComponent = cardList.map((card, i) => (
-      <Carousel
-        card={card}
+      <div
         key={card}
-        id={i}
-        currentIndex={currentIndex}
-        updateCurrentImage={this.updateCurrentImage}
-        cardList={cardList}
-        updateBottomBoarder={this.updateBottomBoarder}
-        bottomBoarder={bottomBoarder}
-      />
+        className={bottomBoarder[i] ? styles.border : styles.noBorder}
+      >
+        <Carousel
+          card={card}
+          id={i}
+          currentIndex={currentIndex}
+          updateCurrentImage={this.updateCurrentImage}
+          cardList={cardList}
+          updateBottomBoarder={this.updateBottomBoarder}
+          bottomBoarder={bottomBoarder}
+        />
+      </div>
     ));
+
+    // <div id="galleryItemList" className={styles.galleryItemList}>
+    //   {galleryImages.map((image) => (
+    //     <div
+    //       key={image._id}
+    //       className={currentBorder[image._id - 1] ? styles.border : styles.no_border}
+    //     >
+    //       <GalleryItem
+    //         image={image}
+    //         updateCurrentImage={updateCurrentImage}
+    //         currentIndex={currentIndex}
+    //         currentBorder={currentBorder}
+    //         updateCurrentBorder={updateCurrentBorder}
+    //       />
+    //     </div>
+    //   ))}
+    // </div>
 
     return (
       <div className={styles.container}>
