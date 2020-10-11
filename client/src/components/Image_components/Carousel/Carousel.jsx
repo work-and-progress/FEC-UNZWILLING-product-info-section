@@ -19,29 +19,16 @@ export default class Carousel extends React.Component {
   }
 
   render() {
-    const { card, id, bottomBoarder, currentIndex } = this.props;
-    // console.log(bottomBoarder);
-    // console.log(id);
-    // console.log(id);
-    // console.log(bottomBoarder[id]);
-    // const bid = bottomBoarder[id];
-    // const setClass = `${bottomBoarder[id]} ? ${styles.card} : ${styles.temp}`;
-    // const setClass2 = `${bottomBoarder[id]} ? 'styles.card' : 'styles.temp'`;
-    // const setClass3 = bottomBoarder[id] ? 'card' : 'temp';
-    // const testStyle = (currentIndex === 0) ? 'card' : 'temp';
-    // console.log ((currentIndex === 0));
+    const { card } = this.props;
 
     return (
-      <div>
-        <div>
+        <div className={styles.card}>
           <img
-            // className={ styles.card }
             src={card}
             alt="card"
             onClick={this.clickHandler}
           />
         </div>
-      </div>
     );
   }
 }

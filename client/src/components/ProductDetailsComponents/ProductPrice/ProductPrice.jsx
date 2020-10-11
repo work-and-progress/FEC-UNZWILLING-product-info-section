@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// Product prices should be refactored.
+
 import styles from './styles.css';
 
 export default function ProductPrice(props) {

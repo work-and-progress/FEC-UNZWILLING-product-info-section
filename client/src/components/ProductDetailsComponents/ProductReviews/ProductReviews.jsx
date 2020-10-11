@@ -40,7 +40,6 @@ export default class ProductReviews extends React.Component {
 
     const { displayDropdown } = this.state;
 
-    // On mouse hover, dropdown shows.
     let productReviewDropdown = null;
 
     if (displayDropdown) {

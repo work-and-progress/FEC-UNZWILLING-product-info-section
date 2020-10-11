@@ -1,13 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link,
-// } from 'react-router-dom';
 
-// import TopNavBar from './components/top_bar_components/TopNavBar/TopNavBar';
 import styles from './styles.css';
 import ProductDetails from '../components/ProductDetailsComponents/ProductDetails/ProductDetails';
 import ProductImages from '../components/image_components/ProductImages/ProductImages';
@@ -19,7 +12,6 @@ export default class App extends React.Component {
       productInfoDetails: {},
       numberOfItemsInBasket: 0,
       cardList: [],
-      // productId: 1,
     };
     this.getOneProductDetails = this.getOneProductDetails.bind(this);
     this.updateBasket = this.updateBasket.bind(this);
@@ -38,7 +30,6 @@ export default class App extends React.Component {
         }));
       })
       .catch(() => {
-        // console.err(error);
       });
   }
 
