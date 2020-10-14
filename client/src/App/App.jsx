@@ -18,7 +18,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getOneProductDetails(1);
+    this.getOneProductDetails(2);
   }
 
   getOneProductDetails(id) {

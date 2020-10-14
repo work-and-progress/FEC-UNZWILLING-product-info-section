@@ -92,7 +92,40 @@ const getOneProductData = (id, callback) => {
   });
 };
 
+const postOneProductData = (testRecord, callback) => {
+  Product.create(testRecord, (err, success) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, success);
+    }
+  })
+}
+
+const putOneProductData = (id, callback) => {
+  Product.updateOne({id: id}, {name: 'Kenny Update'}, (err, success) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, success);
+    }
+  })
+}
+
+const deleteOneProductData = (id, callback) => {
+  Product.deleteOne({id: id}, (err, success) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, success);
+    }
+  })
+}
+
 module.exports = {
   seedingData,
   getOneProductData,
+  postOneProductData,
+  putOneProductData,
+  deleteOneProductData
 };
