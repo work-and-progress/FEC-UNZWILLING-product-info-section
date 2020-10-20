@@ -1,3 +1,6 @@
 node_modules
 main.bundle.js
 coverage
+seed/products.csv
+seed/productsLittle.csv
+seed/seedling1.js
