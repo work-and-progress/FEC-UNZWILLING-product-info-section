@@ -1,11 +1,11 @@
 const faker = require('faker');
 const fs = require('fs');
 
-const writeProducts = fs.createWriteStream('productsLittle.csv');
-writeProducts.write('pid| fiveStarReviews| fourStarReviews| threeStarReviews| twoStarReviews| oneStarReviews| numberOfReviews| averageRating| name| category| description| specificationItemNo| measurements| characteristics| skus| skuName| mainImg| subImg| quantity| price| discountPercentage| discount \n', 'utf8');
+const writeProducts = fs.createWriteStream('productsCass.csv');
+writeProducts.write('pid|fiveStarReviews|fourStarReviews|threeStarReviews|twoStarReviews|oneStarReviews|numberOfReviews|averageRating|name|category|description|specificationItemNo|measurements|characteristics|skus|skuName|mainImg|subImg|quantity|price|discountPercentage|discount\n', 'utf8');
 
 function writeTenMillionProducts(writer, encoding, callback) {
-  let totalRecords = 100;
+  let totalRecords = 3000000;
   let pid = 0;
   function write() {
     let canStillWrite = true;
@@ -30,43 +30,45 @@ function writeTenMillionProducts(writer, encoding, callback) {
         measurements[uniqueMeasurement] = faker.lorem.sentence();
       }
       measurements = JSON.stringify(measurements);
-      measurements = measurements.replace(/"/gi, '"""');
+      measurements = measurements.replace(/"/gi, "'"); //objects must be in single quotes
       let characteristics = {};
       for (let i = 0; i < faker.random.number({ min: 3, max: 5 }); i++) {
         const uniqueCharacteristic = faker.commerce.department();
         characteristics[uniqueCharacteristic] = faker.lorem.sentence();
       }
       characteristics = JSON.stringify(characteristics);
-      characteristics = characteristics.replace(/"/gi, '"""');
-
+      characteristics = characteristics.replace(/"/gi, "'");
       const numOfSkus = faker.random.number({ min: 1, max: 8 });
       const skusArr = [];
+
+      let mainImg = faker.image.image();
+      const subImgArr = [mainImg];
       for (let i = 0; i < numOfSkus; i++) {
         skusArr.push(faker.commerce.color());
+        if (i > 0) {
+          subImgArr.push(faker.image.image());
+        }
       }
+      let subImg = JSON.stringify(subImgArr);
+      subImg = subImg.replace('[', '{'); //arrays need to be in curly brackets
+      subImg = subImg.replace(']', '}');
+      subImg = subImg.replace(/"/gi, "'");
       let skus = JSON.stringify(skusArr);
       skus = skus.replace('[', '{');
       skus = skus.replace(']', '}');
+      skus = skus.replace(/"/gi, "'");
 
-      // if (numOfSkus > 1) {
       for (let i = 0; i < numOfSkus; i++) {
+        mainImg = subImgArr[i];
         const skuName = skusArr[i];
-        const mainImg = faker.image.image();
-        let subImg = [mainImg];
-        for (let j = 0; i < faker.random.number({ min: 0, max: 6 }); j++) {
-          subImg.push(faker.image.image());
-        }
-        subImg = JSON.stringify(subImg);
-        subImg = subImg.replace('[', '{');
-        subImg = subImg.replace(']', '}');
         const quantity = faker.random.number({ min: 0, max: 20 });
-        const price = faker.commerce.price();
+        const price = faker.random.number({ min: 100, max: 300, precision: 0.01});
         let discountPercentage = 0;
         const discount = faker.random.arrayElement(["Yes", "No"]);
         if (discount === 'Yes') {
           discountPercentage = faker.random.number({ min: 10, max: 50 });
         }
-        data = `${pid}| ${fiveStarReviews}| ${fourStarReviews}| ${threeStarReviews}| ${twoStarReviews}| ${oneStarReviews}| ${numberOfReviews}| ${averageRating}| ${name}| ${category}| ${description}| ${specificationItemNo}| "${measurements}"| "${characteristics}"| ${skus}| ${skuName}| ${mainImg}| ${subImg}| ${quantity}| ${price}| ${discountPercentage}| ${discount}\n`;
+        data = `${pid}|${fiveStarReviews}|${fourStarReviews}|${threeStarReviews}|${twoStarReviews}|${oneStarReviews}|${numberOfReviews}|${averageRating}|${name}|${category}|${description}|${specificationItemNo}|${measurements}|${characteristics}|${skus}|${skuName}|${mainImg}|${subImg}|${quantity}|${price}|${discountPercentage}|${discount}\n`;
 
         if (totalRecords === 0 && i === numOfSkus - 1) {
           writer.write(data, encoding, callback);
@@ -74,15 +76,6 @@ function writeTenMillionProducts(writer, encoding, callback) {
           canStillWrite = writer.write(data, encoding);
         }
       }
-      // }
-      // else {
-      //   data = `${pid}| ${fiveStarReviews}| ${fourStarReviews}| ${threeStarReviews}| ${twoStarReviews}| ${oneStarReviews}| ${numberOfReviews}| ${averageRating}| ${name}| ${category}| ${description}| ${specificationItemNo}| ${measurements}| ${characteristics}| \n`;
-      //   if (totalRecords === 0) {
-      //     writer.write(data, encoding, callback);
-      //   } else {
-      //     canStillWrite = writer.write(data, encoding);
-      //   }
-      // }
     }
     if (totalRecords > 0) {
       // had to stop early!
@@ -90,7 +83,7 @@ function writeTenMillionProducts(writer, encoding, callback) {
       writer.once('drain', write);
     }
   }
-write()
+  write();
 }
 
 writeTenMillionProducts(writeProducts, 'utf-8', () => {
