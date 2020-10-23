@@ -95,4 +95,4 @@ ON DELETE CASCADE;
 
 CREATE INDEX ON products (pid);
 
-CREATE INDEX ON product_sku (pid, skuName);
+CREATE INDEX ON product_sku (pid, discountpercentage);

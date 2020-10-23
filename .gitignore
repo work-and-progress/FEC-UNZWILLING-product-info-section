@@ -5,3 +5,4 @@ seed/products.csv
 seed/productsCass.csv
 seed/productsLittle.csv
 seed/seedling1.js
+databaseSDC/postgresConfig.js
