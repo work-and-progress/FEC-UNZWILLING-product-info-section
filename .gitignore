@@ -5,4 +5,11 @@ seed/products.csv
 seed/productsCass.csv
 seed/productsLittle.csv
 seed/seedling1.js
+seed/xaa
+seed/xab
+seed/xac
+seed/xad
 databaseSDC/postgresConfig.js
+server/newrelic_agent.log
+newrelic.js
+product_info.sql
