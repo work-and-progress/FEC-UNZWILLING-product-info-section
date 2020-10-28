@@ -39,7 +39,7 @@ function writeTenMillionProducts(writer, encoding, callback) {
       characteristics = JSON.stringify(characteristics);
       characteristics = characteristics.replace(/"/gi, '"""');
 
-      const numOfSkus = faker.random.number({ min: 1, max: 8 });
+      const numOfSkus = faker.random.number({ min: 1, max: 6 });
       const skusArr = [];
       let mainImg = faker.image.image();
       const subImgArr = [mainImg];
@@ -88,3 +88,6 @@ function writeTenMillionProducts(writer, encoding, callback) {
 writeTenMillionProducts(writeProducts, 'utf-8', () => {
   writeProducts.end();
 });
+
+
+// (a.pid,a.fiveStarReviews,a.fourStarReviews,a.threeStarReviews,a.twoStarReviews,a.oneStarReviews,a.numberOfReviews,a.averageRating,a.name,a.category,a.description,a.specificationItemNo,a.measurements,a.characteristics,a.skus,b.skuName,b.mainImg,b.subImg,b.quantity,b.price,b.discountPercentage,b.discount)
