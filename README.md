@@ -1,4 +1,7 @@
-#CRUD operations:
+# Product Info - Zwilling catalog
+This repo contains the product info for 12 million unique Zwilling products.
+
+# CRUD operations:
 
 **Create -**
 
